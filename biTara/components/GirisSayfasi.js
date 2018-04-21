@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Alert, AppRegistry, Button, StyleSheet, View, Text } from 'react-native';
 
-export default class ButtonBasics extends Component {
+class GirisSayfasi extends Component {
   _onPressButton() {
-    Alert.alert('You tapped the button!')
+    Alert.alert('You tapped the button!');
   }
 
   render() {
@@ -48,7 +48,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between'
   }
-})
+});
 
-// skip this line if using Create React Native App
-AppRegistry.registerComponent('AwesomeProject', () => ButtonBasics);
+export default GirisSayfasi;
