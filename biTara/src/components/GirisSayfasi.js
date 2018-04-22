@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Alert, AppRegistry, Button, StyleSheet, View, Text } from 'react-native';
+import { Alert, Button, StyleSheet, View, Text } from 'react-native';
 
 class GirisSayfasi extends Component {
   _onPressButton() {
@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
     margin: 10
   },
   welcome: {
+    color: '#fff',
     fontSize: 60,
     textAlign: 'center',
     margin: 30,
