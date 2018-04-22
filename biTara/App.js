@@ -11,15 +11,15 @@ import {
   Text,
   View
 } from 'react-native';
-import GirisSayfasi from './components/GirisSayfasi';
+import GirisSayfasi from './src/components/GirisSayfasi';
+import MobilTarifeler from './src/components/MobilTarifeler';
 
 
-type Props = {};
-export default class App extends Component<Props> {
+export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <GirisSayfasi />
+        <MobilTarifeler />
       </View>
     );
   }
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
+    //alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
   welcome: {
