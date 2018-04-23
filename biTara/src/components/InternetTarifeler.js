@@ -4,7 +4,7 @@ import { Text, Button, View } from 'react-native';
 //import CardSection from '../ortak/CardSection';
 
 
-class MobilTarifeler extends Component {
+class InternetTarifeler extends Component {
     clickLogin() {
 
     }
@@ -13,21 +13,21 @@ class MobilTarifeler extends Component {
          <View style={{ backgroundColor: '#002233' }}>
            <View style={styles.containerStyle}>
            <View style={styles.containerHeaderStyle}>
-                <Text style={{ color: 'white', fontSize: 35, textAlign: 'center' }}>{} Operatör</Text>
+                <Text style={{ color: 'white', fontSize: 35, textAlign: 'center' }}>{} Sağlayıcı</Text>
            </View>
                 <View>
                     <Text style={styles.headerStyle}>{} tarife adı</Text>
                 </View>
                 <View style={styles.subContainerStyle}>
-                    <Text>Dakika: {}</Text>
-                    <Text>SMS: {}</Text>
-                    <Text>İnternet: {} GB</Text>
-                    <Text>Tarife Çeşidi: {}</Text>
+                    <Text>Hız: {}</Text>
+                    <Text>Limit: {}</Text>
+                    <Text>Taahhüt: {} </Text>
                     <View style={{ textAlign: 'center', margin: 12 }}>
                     <Text style={{ textAlign: 'center', fontSize: 22 }}>Fiyat: {} TL</Text>                        
                     </View>      
-
-            <Button style={{ marginTop: 10, marginBottom: 10 }} color="#00CCEE" onPress={this.clickLogin.bind(this)} title='Görüntüle' />
+            <View style={{ marginBottom: 2 }} >
+            <Button style={{ marginTop: 10, marginBottom: 10 }} color="#00CCEE" onPress={this.clickLogin.bind(this)} title='Görüntüle' />              
+            </View>
             </View>
             </View>  
           </View>        
@@ -54,7 +54,7 @@ const styles = {
         backgroundColor: '#002233',
       },
       subContainerStyle: {
-        fontSize: 18,
+        fontSize: 20,
         borderBottomWidth: 0,
         padding: 4,
         backgroundColor: '#fff',
@@ -71,4 +71,4 @@ const styles = {
       }
 };
 
-export default MobilTarifeler;
+export default InternetTarifeler;
