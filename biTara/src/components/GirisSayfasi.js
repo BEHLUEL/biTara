@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Alert, AppRegistry, Button, StyleSheet, View, Text } from 'react-native';
+import { Alert, Button, StyleSheet, View, Text } from 'react-native';
 
-class GirisEkrani extends Component {
+class GirisSayfasi extends Component {
   _onPressButton() {
     Alert.alert('You tapped the button!');
   }
@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
     margin: 10
   },
   welcome: {
+    color: '#fff',
     fontSize: 60,
     textAlign: 'center',
     margin: 30,
@@ -51,4 +52,4 @@ const styles = StyleSheet.create({
 });
 
 // skip this line if using Create React Native 
-export default GirisEkrani;
+export default GirisSayfasi;
