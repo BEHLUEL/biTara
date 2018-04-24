@@ -9,14 +9,18 @@ class MobilAyrinti extends Component {
             <Text style={styles.headerTextStyle}> Tarife Adı {} </Text>
             </View>
             <View style={styles.bodyStyle}>
-                <Text style={styles.bodyFontStyle} >Operatör: {}</Text>
-                <Text style={styles.bodyFontStyle}>Dakika: {}</Text>
-                <Text style={styles.bodyFontStyle}>SMS: {}</Text>
-                <Text style={styles.bodyFontStyle}>İnternet: {}</Text>
-                <Text style={styles.bodyFontStyle}>Hat Türü: {}</Text>
-                <Text style={styles.bodyFontStyle}>Tarife Türü: {}</Text>
+                <Text style={styles.bodyFontStyle}>İnternet Sağlayıcısı: {}</Text>
+                <Text style={styles.bodyFontStyle}>Hız: {} Mbps</Text>
+                <Text style={styles.bodyFontStyle}>Limit: {}</Text>
+                <Text style={styles.bodyFontStyle}>Kota: {}</Text>
+                <Text style={styles.bodyFontStyle}>Kampanya Türü: {}</Text>
                 <Text style={styles.bodyFontStyle}>Taahhüt: {}</Text>
+                <Text style={styles.bodyFontStyle}>Tv: {}</Text>
+                <Text style={styles.bodyFontStyle}>Telefon: {}</Text>               
                 
+                <View>
+                    <Text style={{ textAlign: 'center', fontSize: 20, marginTop: 15, color: 'rgb(190,200,200)' }}>Aylık ... {} TL</Text>
+                </View>
             </View>
             <View style={styles.containerStyle}>
                 <View style={styles.containerHeaderStyle}>
@@ -62,6 +66,7 @@ const styles = {
         fontSize: 30,
         textAlign: 'center',
         margin: 20,
+        marginTop: 30,
         color: 'rgb(190,200,200)',
     },
     containerHeaderTextStyle: {
