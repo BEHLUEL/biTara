@@ -14,13 +14,15 @@ import {
 import GirisSayfasi from './src/components/GirisSayfasi';
 import MobilTarifeler from './src/components/MobilTarifeler';
 import InternetTarifeler from './src/components/InternetTarifeler';
+import MobilKisitSayfasi from './src/components/MobilKisitSayfasi';
+import InternetKisitSayfasi from './src/components/InternetKisitSayfasi';
 
 
 export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <InternetTarifeler />
+        <MobilKisitSayfasi />
       </View>
     );
   }
