@@ -15,13 +15,14 @@ import GirisSayfasi from './src/components/GirisSayfasi';
 import MobilTarifeler from './src/components/MobilTarifeler';
 import InternetTarifeler from './src/components/InternetTarifeler';
 import MobilAyrinti from './src/components/MobilAyrinti';
+import InternetAyrinti from './src/components/InternetAyrinti';
 
 
 export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <MobilAyrinti />
+        <InternetAyrinti />
       </View>
     );
   }
