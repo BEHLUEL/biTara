@@ -11,6 +11,9 @@ import {
   Text,
   View
 } from 'react-native';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import reducers from './reducers';
 import GirisSayfasi from './src/components/GirisSayfasi';
 import MobilTarifeler from './src/components/MobilTarifeler';
 import InternetTarifeler from './src/components/InternetTarifeler';
@@ -19,11 +22,26 @@ import InternetAyrinti from './src/components/InternetAyrinti';
 
 
 export default class App extends Component {
+  componentDidMount() {
+    firebase.initializeApp({
+      apiKey: 'AIzaSyC2Bj8J3_9flr65m9knmLsxrxMdlZSMQqo',
+      authDomain: 'bitara-84874.firebaseapp.com',
+      databaseURL: 'https://bitara-84874.firebaseio.com',
+      projectId: 'bitara-84874',
+      storageBucket: 'bitara-84874.appspot.com',
+      messagingSenderId: '492432044814'
+    });
+    
+    var database = firebase.database();
+  };
+
   render() {
     return (
+      <Provider store={createStore(reducers)}>
       <View style={styles.container}>
         <InternetAyrinti />
       </View>
+      </Provider>
     );
   }
 }
