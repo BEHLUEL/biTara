@@ -11,6 +11,9 @@ import {
   Text,
   View
 } from 'react-native';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import reducers from './reducers';
 import GirisSayfasi from './src/components/GirisSayfasi';
 import MobilTarifeler from './src/components/MobilTarifeler';
 import InternetTarifeler from './src/components/InternetTarifeler';
@@ -31,12 +34,14 @@ export default class App extends Component {
     
     var database = firebase.database();
   };
-  
+
   render() {
     return (
+      <Provider store={createStore(reducers)}>
       <View style={styles.container}>
         <InternetAyrinti />
       </View>
+      </Provider>
     );
   }
 }
