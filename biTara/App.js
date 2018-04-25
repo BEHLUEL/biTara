@@ -19,6 +19,19 @@ import InternetAyrinti from './src/components/InternetAyrinti';
 
 
 export default class App extends Component {
+  componentDidMount() {
+    firebase.initializeApp({
+      apiKey: 'AIzaSyC2Bj8J3_9flr65m9knmLsxrxMdlZSMQqo',
+      authDomain: 'bitara-84874.firebaseapp.com',
+      databaseURL: 'https://bitara-84874.firebaseio.com',
+      projectId: 'bitara-84874',
+      storageBucket: 'bitara-84874.appspot.com',
+      messagingSenderId: '492432044814'
+    });
+    
+    var database = firebase.database();
+  };
+  
   render() {
     return (
       <View style={styles.container}>
