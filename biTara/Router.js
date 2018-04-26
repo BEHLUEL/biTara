@@ -12,7 +12,6 @@ const RouterComponent = () => {
     return(
         <Router>
             <Scene key="bitara">
-                <Scene key="giris" component={GirisSayfasi} title="Giris ekrani" />
                 <Scene key="mobiltarifeler" component={MobilTarifeler} title="Mobil Tarifeler" />
                 <Scene key="internettarifeler" component={InternetTarifeler} title="Internet Tarifeler" />
                 <Scene key="mobilayrinti" component={MobilAyrinti} title="Mobil Tarife Ayrıntı" />
