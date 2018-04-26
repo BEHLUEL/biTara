@@ -5,20 +5,17 @@
  */
 
 import React, { Component } from 'react';
-
+import firebase from 'firebase';
 import {
   StyleSheet,
   Text,
   View
 } from 'react-native';
+
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import reducers from './reducers';
-import GirisSayfasi from './src/components/GirisSayfasi';
-import MobilTarifeler from './src/components/MobilTarifeler';
-import InternetTarifeler from './src/components/InternetTarifeler';
-import MobilAyrinti from './src/components/MobilAyrinti';
-import InternetAyrinti from './src/components/InternetAyrinti';
+import reducers from './src/reducers';
+import Router from './Router';
 
 
 export default class App extends Component {
@@ -38,9 +35,9 @@ export default class App extends Component {
   render() {
     return (
       <Provider store={createStore(reducers)}>
-      <View style={styles.container}>
-        <InternetAyrinti />
-      </View>
+        <View style={styles.container}>
+          <Router />
+        </View>
       </Provider>
     );
   }
