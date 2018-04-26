@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import { Alert, Button, StyleSheet, View, Text } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
 class GirisSayfasi extends Component {
-  _onPressButton() {
-    Alert.alert('You tapped the button!');
-  }
-
   render() {
     return (
       <View style={styles.container}>
@@ -13,14 +10,15 @@ class GirisSayfasi extends Component {
         </Text>
         <View style={styles.buttonContainer}>
           <Button
-           
             title="Mobil"
+            onPress={Actions.mobilkisitsayfasi}
           />
         </View>
         <View style={styles.buttonContainer}>
           <Button
             title="İnternet"
             color="#841584"
+            onPress={Actions.internetkisitsayfasi}
           />
         </View>
         
