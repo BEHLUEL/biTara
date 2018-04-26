@@ -11,14 +11,12 @@ class GirisSayfasi extends Component {
         <View style={styles.buttonContainer}>
           <Button
             title="Mobil"
-            onPress={Actions.mobilkisitsayfasi}
           />
         </View>
         <View style={styles.buttonContainer}>
           <Button
             title="İnternet"
             color="#841584"
-            onPress={Actions.internetkisitsayfasi}
           />
         </View>
         
