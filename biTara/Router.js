@@ -13,6 +13,13 @@ const RouterComponent = () => (
             <Scene style={styles.container} key="bitara">
                 <Scene 
                 
+                key="girissayfasi" 
+                component={GirisSayfasi} 
+                title="Giriş Sayfası" 
+                />
+
+                <Scene 
+                
                 key="mobiltarifeler" 
                 component={MobilTarifeler} 
                 title="Mobil Tarifeler" 
