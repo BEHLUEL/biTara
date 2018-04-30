@@ -12,14 +12,18 @@ const RouterComponent = () => (
         <Router style={styles.container} >
             <Scene style={styles.container} key="bitara">
                 <Scene 
-                
+                key="internetkisitsayfasi" 
+                component={InternetKisitSayfasi} 
+                title="Internet Tarife Arama" 
+                />
+
+                <Scene  
                 key="girissayfasi" 
                 component={GirisSayfasi} 
                 title="Giriş Sayfası" 
                 />
 
                 <Scene 
-                
                 key="mobiltarifeler" 
                 component={MobilTarifeler} 
                 title="Mobil Tarifeler" 
@@ -48,11 +52,6 @@ const RouterComponent = () => (
                 title="Mobil Tarife Arama" 
                 />
 
-                <Scene 
-                key="internetkisitsayfasi" 
-                component={InternetKisitSayfasi} 
-                title="Internet Tarife Arama" 
-                />
 
             </Scene>
         </Router>

@@ -3,7 +3,7 @@ import { View, Text, CheckBox, Button, TextInput } from 'react-native';
 
 class MobilKisitSayfasi extends Component {
     render() {
-        return(
+        return (
             <View style={styles.body}>
                 <Text style={styles.baslik}>biTara</Text>
                 <Text style={styles.altbaslik}>Mobil Tarife</Text>
@@ -27,23 +27,27 @@ class MobilKisitSayfasi extends Component {
                     <TextInput />
 
                     <Text style={styles.mainText}>SMS:</Text>
-                    <Text style={{color: '#fff'}}>En az:</Text>
+                    <Text style={{ color: '#fff' }}>En az:</Text>
                     <TextInput />
-                    <Text style={{color: '#fff'}}>En fazla:</Text>
+                    <Text style={{ color: '#fff' }}>En fazla:</Text>
                     <TextInput />
 
                     <Text style={styles.mainText}>İnternet:</Text>
-                    <Text style={{color: '#fff'}}>En az:</Text>
+                    <Text style={{ color: '#fff' }}>En az:</Text>
                     <TextInput />
-                    <Text style={{color: '#fff'}}>En fazla:</Text>
+                    <Text style={{ color: '#fff' }}>En fazla:</Text>
                     <TextInput />
 
                     <View style={{marginBottom: 15}}></View>
-                    <Text style={{fontSize: 16, color: '#fff'}}>Tarife Tipi:</Text>
+                    <Text 
+                    style={{fontSize: 16, color: '#fff'}}
+                    >Tarife Tipi:</Text>
                     <Text>Seçenekler buraya gelecek...</Text>
 
-                    <View style={{marginBottom: 15}}></View>
-                    <Text style={{fontSize: 16, color: '#fff'}}>Segment:</Text>
+                    <View style={{ marginBottom: 15 }}></View>
+                    <Text 
+                    style={{ fontSize: 16, color: '#fff' }}
+                    >Segment:</Text>
                     <Text>Seçenekler buraya gelecek...</Text>
                 </View>
                 <Button

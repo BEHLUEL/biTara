@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, CheckBox, Button, TextInput } from 'react-native';
+import { View, Text, CheckBox, Button, TextInput, Slider } from 'react-native';
+import { internetKisitChange } from '../actions';
 
 class MobilKisitSayfasi extends Component {
     render() {
@@ -8,33 +9,28 @@ class MobilKisitSayfasi extends Component {
                 <Text style={styles.baslik}>biTara</Text>
                 <Text style={styles.altbaslik}>İnternet</Text>
                 <View style={styles.main}>
-                    <Text style={{fontSize: 16, color: '#fff', textDecorationLine: 'underline'}}>Şirket</Text>
+                    <Text style={{ fontSize: 16, color: '#fff', textDecorationLine: 'underline' }}>Şirket</Text>
                     <CheckBox
                         title='Türk Telekom'
+                        
                     />
                     <CheckBox
-                        title='Türk Telekom'
+                        title='Süperonline'
                     />
                     <CheckBox
-                        title='Türk Telekom'
+                        title='Kablonet'
                     />
-                    <View style={{marginBottom: 10}}></View>
-                    <Text style={{fontSize: 16, color: '#fff', textDecorationLine: 'underline'}}>Kullanım Miktarları</Text>
+                    <View style={{ marginBottom: 10 }}></View>
+                    <Text style={{ fontSize: 16, color: '#fff', textDecorationLine: 'underline', marginBottom: 10 }}>Kullanım Miktarları</Text>
                     <Text style={styles.mainText}>Kota:</Text>
-                    <Text style={{color: '#fff'}}>En az:</Text>
-                    <TextInput />
-                    <Text style={{color: '#fff'}}>En fazla:</Text>
-                    <TextInput />
+                    <Slider />
 
                     <Text style={styles.mainText}>AKK:</Text>
-                    <Text style={{color: '#fff'}}>En az:</Text>
-                    <TextInput />
-                    <Text style={{color: '#fff'}}>En fazla:</Text>
-                    <TextInput />
+                    <Slider />
 
-                    <View style={{marginBottom: 15}}></View>
-                    <Text style={{fontSize: 16, color: '#fff'}}>Hız:</Text>
-                    <Text>Seçenekler buraya gelecek...</Text>
+                    <View style={{ marginBottom: 15 }}></View>
+                    <Text style={{ fontSize: 16, color: '#fff' }}>Hız:</Text>
+                    <Slider />
 
                     <View style={{marginBottom: 15}}></View>
                     <Text style={{fontSize: 16, color: '#fff'}}>Televizyon:</Text>
@@ -81,7 +77,8 @@ const styles = {
 
     mainText: {
         color: '#fff',
-        fontSize: 16
+        fontSize: 16,
+        marginBottom: 5,
     },
 
     button: {
