@@ -24,17 +24,19 @@ class GirisSayfasi extends Component {
         
       </View>
     );
-  }
-}
+  };
+};
 
 const styles = StyleSheet.create({
   container: {
    flex: 1,
    justifyContent: 'center',
   },
+
   buttonContainer: {
     margin: 10
   },
+
   welcome: {
     color: '#fff',
     fontSize: 60,
@@ -42,6 +44,7 @@ const styles = StyleSheet.create({
     margin: 30,
     marginBottom: 70,
   },
+
   alternativeLayoutButtonContainer: {
     margin: 20,
     flexDirection: 'row',

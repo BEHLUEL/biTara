@@ -11,12 +11,6 @@ import InternetKisitSayfasi from './src/components/InternetKisitSayfasi';
 const RouterComponent = () => (
         <Router style={styles.container} >
             <Scene style={styles.container} key="bitara">
-                <Scene 
-                key="internetkisitsayfasi" 
-                component={InternetKisitSayfasi} 
-                title="Internet Tarife Arama" 
-                />
-
                 <Scene  
                 key="girissayfasi" 
                 component={GirisSayfasi} 
@@ -52,10 +46,16 @@ const RouterComponent = () => (
                 title="Mobil Tarife Arama" 
                 />
 
+                <Scene 
+                key="internetkisitsayfasi" 
+                component={InternetKisitSayfasi} 
+                title="Internet Tarife Arama" 
+                />
 
             </Scene>
         </Router>
     );
+
 const styles = {
     container: {
       flex: 1,
@@ -63,7 +63,6 @@ const styles = {
       //alignItems: 'center',
       backgroundColor: '#002233',
     },
-    
   };
 
 export default RouterComponent;

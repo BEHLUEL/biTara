@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, ScrollView, Text } from 'react-native';
 
 class MobilAyrinti extends Component {
     render() {
         return (
-            <View>
+            <ScrollView>
             <View >
             <Text style={styles.headerTextStyle}> Tarife Adı {} </Text>
             </View>
@@ -31,10 +31,10 @@ class MobilAyrinti extends Component {
                 </View>
 
             </View>
-            </View>
+            </ScrollView>
         );
-    }
-}
+    };
+};
 
 const styles = {
     containerStyle: {
@@ -47,8 +47,8 @@ const styles = {
         shadowRadius: 10,
         elevation: 1,
         margin: 10,
-    
       },
+
       subContainerStyle: {
         fontSize: 18,
         borderBottomWidth: 0,
@@ -59,9 +59,11 @@ const styles = {
         borderColor: '#fff',
         position: 'relative',
       },
+
       containerHeaderStyle: {
         backgroundColor: '#00CCEE',
       },
+
     headerTextStyle: {
         fontSize: 30,
         textAlign: 'center',
@@ -69,25 +71,28 @@ const styles = {
         marginTop: 30,
         color: 'rgb(190,200,200)',
     },
+
     containerHeaderTextStyle: {
         fontSize: 18,
         textAlign: 'center',
         margin: 3,
         color: '#002233',
     },
+
     subTextStyle: {
         fontSize: 15,
         textAlign: 'center',
         margin: 2,
         color: 'rgb(190,200,200)',
     },
+
     bodyStyle: {
         margin: 30,
     },
+
     bodyFontStyle: {
         fontSize: 15,
         color: 'rgb(160,200,220)',
-        
     },
 };
 
