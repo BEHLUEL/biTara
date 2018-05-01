@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, Button, , ScrollView } from 'react-native';
+import { Text, Button, ScrollView, View } from 'react-native';
 //import Card from '../ortak/Card';
 //import CardSection from '../ortak/CardSection';
 
@@ -13,7 +13,7 @@ class InternetTarifeler extends Component {
          <ScrollView style={{ backgroundColor: '#002233' }}>
            <View style={styles.containerStyle}>
            <View style={styles.containerHeaderStyle}>
-                <Text style={{ color: 'white', fontSize: 35, textAlign: 'center' }}>{} Sağlayıcı</Text>
+                <Text style={{ color: 'white', fontSize: 35 }}>{} Sağlayıcı</Text>
            </View>
                 <View>
                     <Text style={styles.headerStyle}>{} tarife adı</Text>
@@ -22,7 +22,7 @@ class InternetTarifeler extends Component {
                     <Text>Hız: {}</Text>
                     <Text>Limit: {}</Text>
                     <Text>Taahhüt: {} </Text>
-                    <View style={{ textAlign: 'center', margin: 12 }}>
+                    <View style={{ margin: 12 }}>
                     <Text style={{ textAlign: 'center', fontSize: 22 }}>Fiyat: {} TL</Text>                        
                     </View>      
             <View style={{ marginBottom: 2 }} >
@@ -54,7 +54,6 @@ const styles = {
       },
 
       subContainerStyle: {
-        fontSize: 20,
         borderBottomWidth: 0,
         padding: 4,
         backgroundColor: '#fff',

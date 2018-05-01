@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { View, ScrollView, Text, CheckBox, Button, TextInput, Slider } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import { internetKisitChange } from '../actions';
-import InternetTarifeler from './InternetTarifeler';
-import { internetAra } from '../actions/internetKisitActions';
+import { connect } from 'react-redux';
+import { internetKisitChange, internetAra } from '../actions';
 
 
-class MobilKisitSayfasi extends Component {
-
+class InternetKisitSayfasi extends Component {
+    
     clickAra() {
         const { saglayicilar,
             limit,
@@ -32,6 +31,7 @@ class MobilKisitSayfasi extends Component {
                     <Text style={{ fontSize: 16, color: '#fff', textDecorationLine: 'underline' }}>Şirket</Text>
                     <View style={{ flexDirection: 'row' }}>
                     <CheckBox
+                        value={this.props.saglayicilar}
                         title='Türk Telekom'
                     />
                     <Text style={{ marginTop: 5, color: '#fff' }}>Türk Telekom</Text>
@@ -39,6 +39,7 @@ class MobilKisitSayfasi extends Component {
 
                     <View style={{ flexDirection: 'row' }}>
                     <CheckBox
+                        value={this.props.saglayicilar}
                         title='Superonline'
                     />
                     <Text style={{ marginTop: 5, color: '#fff' }}>Superonline</Text>
@@ -47,21 +48,33 @@ class MobilKisitSayfasi extends Component {
                     <View style={{ flexDirection: 'row' }}>
                     <CheckBox
                         title='Kablonet'
+                        value={this.props.saglayicilar}
                     />
                     <Text style={{ marginTop: 5, color: '#fff' }}>Kablonet</Text>
                     </View>
-
+                
                     <View style={{ marginBottom: 10 }}></View>
                     <Text style={{ fontSize: 16, color: '#fff', textDecorationLine: 'underline', marginBottom: 10 }}>Kullanım Miktarları</Text>
                     <Text style={styles.mainText}>Kota:</Text>
-                    <Slider />
+                    <Text>{this.props.gb}</Text>
+                    <Slider 
+                    minimumValue={0}
+                    maximumValue={250}
+                    value={this.props.gb}
+                    onValueChange={gb => this.props.internetKisitChange({ props: 'gb', value: gb })}
+                    />
 
                     <Text style={styles.mainText}>AKK:</Text>
-                    <Slider />
+                    
 
                     <View style={{ marginBottom: 15 }}></View>
                     <Text style={{ fontSize: 16, color: '#fff' }}>Hız:</Text>
-                    <Slider />
+                    <Slider 
+                    minimumValue={3}
+                    maximumValue={100}
+                    value={this.props.hiz}
+                    onValueChange={hiz => this.props.internetKisitChange({ props: 'hiz', value: hiz })}
+                    />
 
                     <View style={{ marginBottom: 15 }}></View>
                     <Text style={{fontSize: 16, color: '#fff'}}>Televizyon:</Text>
@@ -119,5 +132,24 @@ const styles = {
         borderRadius: 10
     }
 };
+const mapToStateProps = ({ internetResponse }) => {
+    const { saglayicilar,
+        limit,
+        hiz,
+        gb,
+        tv,
+        tel,
+        yalin,
+        taahhut } = internetResponse;
 
-export default MobilKisitSayfasi;
+    return { saglayicilar,
+        limit,
+        hiz,
+        gb,
+        tv,
+        tel,
+        yalin,
+        taahhut };
+};
+//export default InternetKisitSayfasi;
+export default connect(mapToStateProps, { internetKisitChange, internetAra })(InternetKisitSayfasi);
