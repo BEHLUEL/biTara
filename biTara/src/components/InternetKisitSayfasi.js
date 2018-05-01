@@ -1,8 +1,28 @@
 import React, { Component } from 'react';
 import { View, Text, CheckBox, Button, TextInput, Slider } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 import { internetKisitChange } from '../actions';
+import InternetTarifeler from './InternetTarifeler';
+import { internetAra } from '../actions/internetKisitActions';
+
 
 class MobilKisitSayfasi extends Component {
+
+    clickAra() {
+        const { saglayicilar,
+            limit,
+            hiz,
+            gb,
+            tv,
+            tel,
+            yalin,
+            taahhut } = this.props;
+
+            Actions.internettarifeler();
+            //this.props.internetAra({ saglayicilar, limit, hiz, gb, tv, tel, yalin, taahhut });
+            
+    }
+
     render() {
         return(
             <View style={styles.body}>
@@ -32,7 +52,7 @@ class MobilKisitSayfasi extends Component {
                     <Text style={{ fontSize: 16, color: '#fff' }}>Hız:</Text>
                     <Slider />
 
-                    <View style={{marginBottom: 15}}></View>
+                    <View style={{ marginBottom: 15 }}></View>
                     <Text style={{fontSize: 16, color: '#fff'}}>Televizyon:</Text>
                     <Text>Seçenekler buraya gelecek...</Text>
                 </View>
@@ -40,6 +60,7 @@ class MobilKisitSayfasi extends Component {
                     style={styles.button}
                     title=" Tarife Ara"
                     color="#23913C"
+                    onPress={this.clickAra.bind(this)}
                 />
             </View>
         );

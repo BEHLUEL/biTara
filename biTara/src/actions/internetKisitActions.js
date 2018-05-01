@@ -9,3 +9,8 @@ export const internetKisitChange = ({ props, value }) => {
         });
     };
 };
+
+export const internetAra = ({ props, value }) => {
+    //firebase
+};
+
