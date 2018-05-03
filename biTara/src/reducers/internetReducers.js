@@ -4,7 +4,7 @@ const INITIAL_STATE = {
     saglayicilar: false,
     limit: false,
     hiz: 5,
-    gb: 23,
+    gb: '23',
     tv: false,
     tel: false,
     yalin: false,

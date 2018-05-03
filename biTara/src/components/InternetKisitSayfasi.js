@@ -6,7 +6,20 @@ import { internetKisitChange, internetAra } from '../actions';
 
 
 class InternetKisitSayfasi extends Component {
-    
+    state = { 
+        turktelekom: true,
+        superonline: true,
+        kablonet: true,
+        turknet: true,
+        saglayicilar: false,
+        limit: false,
+        hiz: 0,
+        gb: 0,
+        tv: false,
+        tel: false,
+        yalin: false,
+        taahhut: 0
+    }
     clickAra() {
         const { saglayicilar,
             limit,
@@ -15,7 +28,7 @@ class InternetKisitSayfasi extends Component {
             tv,
             tel,
             yalin,
-            taahhut } = this.props;
+            taahhut } = this.state;
 
             Actions.internettarifeler();
             //this.props.internetAra({ saglayicilar, limit, hiz, gb, tv, tel, yalin, taahhut });
@@ -31,16 +44,17 @@ class InternetKisitSayfasi extends Component {
                     <Text style={{ fontSize: 16, color: '#fff', textDecorationLine: 'underline' }}>Şirket</Text>
                     <View style={{ flexDirection: 'row' }}>
                     <CheckBox
-                        value={this.props.saglayicilar}
+                        value={this.state.turktelekom}
                         title='Türk Telekom'
+                        onValueChange={turktelekom => this.setState({ turktelekom })}
                     />
                     <Text style={{ marginTop: 5, color: '#fff' }}>Türk Telekom</Text>
                     </View>
-
                     <View style={{ flexDirection: 'row' }}>
                     <CheckBox
-                        value={this.props.saglayicilar}
+                        value={this.state.superonline}
                         title='Superonline'
+                        onValueChange={superonline => this.setState({ superonline })}
                     />
                     <Text style={{ marginTop: 5, color: '#fff' }}>Superonline</Text>
                     </View>
@@ -48,23 +62,32 @@ class InternetKisitSayfasi extends Component {
                     <View style={{ flexDirection: 'row' }}>
                     <CheckBox
                         title='Kablonet'
-                        value={this.props.saglayicilar}
+                        value={this.state.kablonet}
+                        onValueChange={kablonet => this.setState({ kablonet })}
                     />
                     <Text style={{ marginTop: 5, color: '#fff' }}>Kablonet</Text>
+                    </View>
+                    <View style={{ flexDirection: 'row' }}>
+                    <CheckBox
+                        value={this.state.turknet}
+                        title='Turknet'
+                        onValueChange={turknet => this.setState({ turknet })}
+                    />
+                    <Text style={{ marginTop: 5, color: '#fff' }}>Turk.net</Text>
                     </View>
                 
                     <View style={{ marginBottom: 10 }}></View>
                     <Text style={{ fontSize: 16, color: '#fff', textDecorationLine: 'underline', marginBottom: 10 }}>Kullanım Miktarları</Text>
                     <Text style={styles.mainText}>Kota:</Text>
-                    <Text>{this.props.gb}</Text>
+                    <Text>{this.state.gb}</Text>
                     <Slider 
                     minimumValue={0}
                     maximumValue={250}
-                    value={this.props.gb}
-                    onValueChange={gb => this.props.internetKisitChange({ props: 'gb', value: gb })}
+                    value={Number(this.state.gb)}
+                    onValueChange={gb => this.setState({ gb })}
                     />
 
-                    <Text style={styles.mainText}>AKK:</Text>
+                    <Text style={styles.mainText}>Limit</Text>
                     
 
                     <View style={{ marginBottom: 15 }}></View>
@@ -72,8 +95,8 @@ class InternetKisitSayfasi extends Component {
                     <Slider 
                     minimumValue={3}
                     maximumValue={100}
-                    value={this.props.hiz}
-                    onValueChange={hiz => this.props.internetKisitChange({ props: 'hiz', value: hiz })}
+                    value={this.state.hiz}
+                    onValueChange={hiz => this.setState({ hiz })}
                     />
 
                     <View style={{ marginBottom: 15 }}></View>
