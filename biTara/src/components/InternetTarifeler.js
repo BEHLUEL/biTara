@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, Button, , ScrollView } from 'react-native';
+import { Text, Button, View , ScrollView } from 'react-native';
 //import Card from '../ortak/Card';
 //import CardSection from '../ortak/CardSection';
 
