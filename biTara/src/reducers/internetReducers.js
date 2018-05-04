@@ -3,13 +3,13 @@ import { INTERNET_KISIT_CHANGED } from '../actions/types';
 const INITIAL_STATE = {
     saglayicilar: false,
     limit: false,
-    hız: '',
-    gb: '',
+    hiz: 5,
+    gb: '23',
     tv: false,
     tel: false,
     yalin: false,
     taahhut: false,
-}
+};
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
@@ -19,4 +19,4 @@ export default (state = INITIAL_STATE, action) => {
         default:
         return state;
     }
-}
+};

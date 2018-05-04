@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
+import internetReducers from './internetReducers';
 
 export default combineReducers({
-    tarife: () => []
+    internetResponse: internetReducers,
 });
