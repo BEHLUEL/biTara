@@ -2,16 +2,17 @@ import React, { Component } from 'react';
 import { View, ScrollView, Text, CheckBox, Button, TextInput, Slider } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
-import RadioButton from 'react-native-radio-button'
+import RadioButton from 'react-native-radio-button';
 import { internetKisitChange, internetAra } from '../actions';
 
 
 class InternetKisitSayfasi extends Component {
     state = { 
-        turktelekom: true,
-        superonline: true,
-        kablonet: true,
-        turknet: true,
+        tumu: false,
+        turktelekom: false,
+        superonline: false,
+        kablonet: false,
+        turknet: false,
         saglayicilar: false,
         limit: false,
         hiz: 0,
@@ -37,18 +38,64 @@ class InternetKisitSayfasi extends Component {
             
     };
 
+    clickTarife(deger, isim) {
+        if (isim === 'tt') {
+            this.setState({ turktelekom: deger });
+        } else if (isim === 'so') {
+            this.setState({ superonline: deger });
+        } else if (isim === 'kn') {
+            this.setState({ kablonet: deger });
+        } else if (isim === 'tn') {
+            this.setState({ turknet: deger });
+        }
+        if (deger === false) {
+            this.setState({ tumu: false });
+        } else if (deger === true) {
+                if (this.state.turktelekom === true & this.state.superonline === true & this.state.kablonet === true & this.state.turknet === true) {
+                    this.setState({ tumu: true });
+                }
+        }
+    }
+    click(deger) {
+        if (deger === true) {
+            this.setState({
+                turktelekom: true,
+                superonline: true,
+                kablonet: true,
+                turknet: true
+            });
+        } else {
+            this.setState({
+                turktelekom: false,
+                superonline: false,
+                kablonet: false,
+                turknet: false
+            });
+        }
+       this.setState({ tumu: deger });
+    }
+
     render() {
         return(
             <ScrollView style={styles.body}>
                 <Text style={styles.baslik}>biTara</Text>
                 <Text style={styles.altbaslik}>İnternet</Text>
                 <View style={styles.main}>
-                    <Text style={{ fontSize: 16, color: '#fff', textDecorationLine: 'underline' }}>Şirket</Text>
+                    <Text style={{ fontSize: 16, color: '#fff', textDecorationLine: 'underline', marginBottom: 10 }}>Şirket</Text>
+                    <View style={{ flexDirection: 'row' }}>
+                    <CheckBox
+                        value={this.state.tumu}
+                        title='Türk Telekom'
+                        onValueChange={tumu => this.click(tumu)}
+                    />
+                    <Text style={{ marginTop: 5, color: '#fff', fontSize: 14, textDecorationLine: 'underline' }}>Tümünü işaretle</Text>
+                    </View>
+                   
                     <View style={{ flexDirection: 'row' }}>
                     <CheckBox
                         value={this.state.turktelekom}
                         title='Türk Telekom'
-                        onValueChange={turktelekom => this.setState({ turktelekom })}
+                        onValueChange={turktelekom => this.clickTarife(turktelekom, 'tt')}
                     />
                     <Text style={{ marginTop: 5, color: '#fff' }}>Türk Telekom</Text>
                     </View>
@@ -56,7 +103,7 @@ class InternetKisitSayfasi extends Component {
                     <CheckBox
                         value={this.state.superonline}
                         title='Superonline'
-                        onValueChange={superonline => this.setState({ superonline })}
+                        onValueChange={superonline => this.clickTarife(superonline, 'so')}
                     />
                     <Text style={{ marginTop: 5, color: '#fff' }}>Superonline</Text>
                     </View>
@@ -65,7 +112,7 @@ class InternetKisitSayfasi extends Component {
                     <CheckBox
                         title='Kablonet'
                         value={this.state.kablonet}
-                        onValueChange={kablonet => this.setState({ kablonet })}
+                        onValueChange={kablonet => this.clickTarife(kablonet, 'kn')}
                     />
                     <Text style={{ marginTop: 5, color: '#fff' }}>Kablonet</Text>
                     </View>
@@ -73,7 +120,7 @@ class InternetKisitSayfasi extends Component {
                     <CheckBox
                         value={this.state.turknet}
                         title='Turknet'
-                        onValueChange={turknet => this.setState({ turknet })}
+                        onValueChange={turknet => this.clickTarife(turknet, 'tn')}
                     />
                     <Text style={{ marginTop: 5, color: '#fff' }}>Turk.net</Text>
                     </View>
