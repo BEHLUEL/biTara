@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, ScrollView, Text, CheckBox, Button, TextInput, Slider } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
+import RadioButton from 'react-native-radio-button'
 import { internetKisitChange, internetAra } from '../actions';
 
 
@@ -19,7 +20,8 @@ class InternetKisitSayfasi extends Component {
         tel: false,
         yalin: false,
         taahhut: 0
-    }
+    };
+
     clickAra() {
         const { saglayicilar,
             limit,
@@ -33,7 +35,7 @@ class InternetKisitSayfasi extends Component {
             Actions.internettarifeler();
             //this.props.internetAra({ saglayicilar, limit, hiz, gb, tv, tel, yalin, taahhut });
             
-    }
+    };
 
     render() {
         return(
@@ -85,6 +87,7 @@ class InternetKisitSayfasi extends Component {
                     maximumValue={250}
                     value={Number(this.state.gb)}
                     onValueChange={gb => this.setState({ gb })}
+                    step={1}
                     />
 
                     <Text style={styles.mainText}>Limit</Text>
@@ -97,11 +100,19 @@ class InternetKisitSayfasi extends Component {
                     maximumValue={100}
                     value={this.state.hiz}
                     onValueChange={hiz => this.setState({ hiz })}
+                    step={1}
                     />
 
                     <View style={{ marginBottom: 15 }}></View>
                     <Text style={{fontSize: 16, color: '#fff'}}>Televizyon:</Text>
-                    <Text>Seçenekler buraya gelecek...</Text>
+                    <View style={{ flexDirection: 'row' }}>
+                        <CheckBox
+                            value={this.state.tv}
+                            title='TV'
+                            onValueChange={tv => this.setState({ tv })}
+                        />
+                        <Text style={{ marginTop: 5, color: '#fff' }}>İçinde televizyon olan paketleri görmek istiyorum.</Text>
+                    </View>
                 </View>
 
                 <Button
