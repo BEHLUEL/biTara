@@ -1,162 +1,128 @@
 import React, { Component } from 'react';
 import { View, ScrollView, Text, CheckBox, Button, TextInput, Slider } from 'react-native';
+import firebase from 'firebase';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import RadioButton from 'react-native-radio-button';
-import { internetKisitChange, internetAra } from '../actions';
+//import internetAra from '../actions/internetKisitActions';
+import { internetKisitChange } from '../actions';
 
 
 class InternetKisitSayfasi extends Component {
-    state = { 
-        tumu: false,
-        turktelekom: false,
-        superonline: false,
-        kablonet: false,
-        turknet: false,
-        saglayicilar: false,
-        limit: false,
-        hiz: 0,
-        gb: 0,
-        tv: false,
-        tel: false,
-        yalin: false,
-        taahhut: 0
-    };
 
     clickAra() {
-        const { saglayicilar,
-            limit,
-            hiz,
-            gb,
-            tv,
-            tel,
-            yalin,
-            taahhut } = this.state;
-
-            Actions.internettarifeler();
-            //this.props.internetAra({ saglayicilar, limit, hiz, gb, tv, tel, yalin, taahhut });
-            
-    };
-
+        console.log('gönderiliyir');
+        Actions.internettarifeler();   
+    }
     clickTarife(deger, isim) {
         if (isim === 'tt') {
-            this.setState({ turktelekom: deger });
+            this.props.internetKisitChange({ props: 'turktelekom', value: deger });
         } else if (isim === 'so') {
-            this.setState({ superonline: deger });
+            this.props.internetKisitChange({ props: 'superonline', value: deger });
         } else if (isim === 'kn') {
-            this.setState({ kablonet: deger });
+            this.props.internetKisitChange({ props: 'kablonet', value: deger });
         } else if (isim === 'tn') {
-            this.setState({ turknet: deger });
+            this.props.internetKisitChange({ props: 'turknet', value: deger });
         }
         if (deger === false) {
-            this.setState({ tumu: false });
+            this.props.internetKisitChange({ props: 'tumu', value: deger });
         } else if (deger === true) {
-                if (this.state.turktelekom === true & this.state.superonline === true & this.state.kablonet === true & this.state.turknet === true) {
-                    this.setState({ tumu: true });
-                }
+            if (this.props.turktelekom * this.props.superonline * this.props.kablonet * this.props.turknet === true) {
+            this.props.internetKisitChange({ props: 'tumu', value: deger });
+            }
         }
     }
     click(deger) {
-        if (deger === true) {
-            this.setState({
-                turktelekom: true,
-                superonline: true,
-                kablonet: true,
-                turknet: true
-            });
-        } else {
-            this.setState({
-                turktelekom: false,
-                superonline: false,
-                kablonet: false,
-                turknet: false
-            });
-        }
-       this.setState({ tumu: deger });
+        this.props.internetKisitChange({ props: 'tumu', value: deger });
+        this.props.internetKisitChange({ props: 'turktelekom', value: deger });
+        this.props.internetKisitChange({ props: 'superonline', value: deger });
+        this.props.internetKisitChange({ props: 'kablonet', value: deger });
+        this.props.internetKisitChange({ props: 'turknet', value: deger });
     }
 
     render() {
-        return(
+        return (
             <ScrollView style={styles.body}>
+
                 <Text style={styles.baslik}>biTara</Text>
                 <Text style={styles.altbaslik}>İnternet</Text>
                 <View style={styles.main}>
                     <Text style={{ fontSize: 16, color: '#fff', textDecorationLine: 'underline', marginBottom: 10 }}>Şirket</Text>
                     <View style={{ flexDirection: 'row' }}>
-                    <CheckBox
-                        value={this.state.tumu}
-                        title='Türk Telekom'
-                        onValueChange={tumu => this.click(tumu)}
-                    />
-                    <Text style={{ marginTop: 5, color: '#fff', fontSize: 14, textDecorationLine: 'underline' }}>Tümünü işaretle</Text>
+                        <CheckBox
+                            value={this.props.tumu}
+                            title='Tümü'
+                            onValueChange={tumu => this.click(tumu)}
+                        />
+                        <Text style={{ marginTop: 5, color: '#fff', fontSize: 14, textDecorationLine: 'underline' }}>Tümünü işaretle</Text>
                     </View>
-                   
+
                     <View style={{ flexDirection: 'row' }}>
-                    <CheckBox
-                        value={this.state.turktelekom}
-                        title='Türk Telekom'
-                        onValueChange={turktelekom => this.clickTarife(turktelekom, 'tt')}
-                    />
-                    <Text style={{ marginTop: 5, color: '#fff' }}>Türk Telekom</Text>
-                    </View>
-                    <View style={{ flexDirection: 'row' }}>
-                    <CheckBox
-                        value={this.state.superonline}
-                        title='Superonline'
-                        onValueChange={superonline => this.clickTarife(superonline, 'so')}
-                    />
-                    <Text style={{ marginTop: 5, color: '#fff' }}>Superonline</Text>
-                    </View>
-                    
-                    <View style={{ flexDirection: 'row' }}>
-                    <CheckBox
-                        title='Kablonet'
-                        value={this.state.kablonet}
-                        onValueChange={kablonet => this.clickTarife(kablonet, 'kn')}
-                    />
-                    <Text style={{ marginTop: 5, color: '#fff' }}>Kablonet</Text>
+                        <CheckBox
+                            value={this.props.turktelekom}
+                            title='Türk Telekom'
+                            onValueChange={turktelekom => this.clickTarife(turktelekom, 'tt')}
+                        />
+                        <Text style={{ marginTop: 5, color: '#fff' }}>Türk Telekom</Text>
                     </View>
                     <View style={{ flexDirection: 'row' }}>
-                    <CheckBox
-                        value={this.state.turknet}
-                        title='Turknet'
-                        onValueChange={turknet => this.clickTarife(turknet, 'tn')}
-                    />
-                    <Text style={{ marginTop: 5, color: '#fff' }}>Turk.net</Text>
+                        <CheckBox
+                            value={this.props.superonline}
+                            title='Superonline'
+                            onValueChange={turktelekom => this.clickTarife(turktelekom, 'so')}
+                        />
+                        <Text style={{ marginTop: 5, color: '#fff' }}>Superonline</Text>
                     </View>
-                
+
+                    <View style={{ flexDirection: 'row' }}>
+                        <CheckBox
+                            title='Kablonet'
+                            value={this.props.kablonet}
+                            onValueChange={turktelekom => this.clickTarife(turktelekom, 'kn')}
+                        />
+                        <Text style={{ marginTop: 5, color: '#fff' }}>Kablonet</Text>
+                    </View>
+                    <View style={{ flexDirection: 'row' }}>
+                        <CheckBox
+                            value={this.props.turknet}
+                            title='Turknet'
+                            onValueChange={turktelekom => this.clickTarife(turktelekom, 'tn')}
+                        />
+                        <Text style={{ marginTop: 5, color: '#fff' }}>Turk.net</Text>
+                    </View>
+
                     <View style={{ marginBottom: 10 }}></View>
                     <Text style={{ fontSize: 16, color: '#fff', textDecorationLine: 'underline', marginBottom: 10 }}>Kullanım Miktarları</Text>
                     <Text style={styles.mainText}>Kota:</Text>
-                    <Text>{this.state.gb}</Text>
-                    <Slider 
-                    minimumValue={0}
-                    maximumValue={250}
-                    value={Number(this.state.gb)}
-                    onValueChange={gb => this.setState({ gb })}
-                    step={1}
+                    <Text>{this.props.gb}</Text>
+                    <Slider
+                        minimumValue={0}
+                        maximumValue={250}
+                        value={this.props.gb}
+                        onValueChange={gb => this.props.internetKisitChange({ props: 'gb', value: gb })}
+                        step={1}
                     />
 
                     <Text style={styles.mainText}>Limit</Text>
-                    
+
 
                     <View style={{ marginBottom: 15 }}></View>
                     <Text style={{ fontSize: 16, color: '#fff' }}>Hız:</Text>
-                    <Slider 
-                    minimumValue={3}
-                    maximumValue={100}
-                    value={this.state.hiz}
-                    onValueChange={hiz => this.setState({ hiz })}
-                    step={1}
+                    <Slider
+                        minimumValue={3}
+                        maximumValue={100}
+                        value={this.props.hiz}
+                        onValueChange={hiz => this.props.internetKisitChange({ props: 'hiz', value: hiz })}
+                        step={1}
                     />
 
                     <View style={{ marginBottom: 15 }}></View>
-                    <Text style={{fontSize: 16, color: '#fff'}}>Televizyon:</Text>
+                    <Text style={{ fontSize: 16, color: '#fff' }}>Televizyon:</Text>
                     <View style={{ flexDirection: 'row' }}>
                         <CheckBox
-                            value={this.state.tv}
+                            value={this.props.tv}
                             title='TV'
-                            onValueChange={tv => this.setState({ tv })}
+                            onValueChange={tv => this.props.internetKisitChange({ props: 'tv', value: tv })}
                         />
                         <Text style={{ marginTop: 5, color: '#fff' }}>İçinde televizyon olan paketleri görmek istiyorum.</Text>
                     </View>
@@ -183,7 +149,7 @@ const styles = {
         marginBottom: 10
     },
 
-    body:{
+    body: {
         backgroundColor: '#002233',
         flex: 1,
         padding: 5,
@@ -195,7 +161,7 @@ const styles = {
         color: '#23913C',
         textAlign: 'center'
     },
-    
+
     altbaslik: {
         fontSize: 16,
         textAlign: 'center',
@@ -214,7 +180,12 @@ const styles = {
     }
 };
 const mapToStateProps = ({ internetResponse }) => {
-    const { saglayicilar,
+    const { tumu,
+        turktelekom,
+        superonline,
+        kablonet,
+        turknet,
+        saglayicilar,
         limit,
         hiz,
         gb,
@@ -223,14 +194,21 @@ const mapToStateProps = ({ internetResponse }) => {
         yalin,
         taahhut } = internetResponse;
 
-    return { saglayicilar,
+    return {
+        tumu,
+        turktelekom,
+        superonline,
+        kablonet,
+        turknet,
+        saglayicilar,
         limit,
         hiz,
         gb,
         tv,
         tel,
         yalin,
-        taahhut };
+        taahhut
+    };
 };
 //export default InternetKisitSayfasi;
-export default connect(mapToStateProps, { internetKisitChange, internetAra })(InternetKisitSayfasi);
+export default connect(mapToStateProps, { internetKisitChange })(InternetKisitSayfasi);
