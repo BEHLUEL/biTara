@@ -19,7 +19,7 @@ class InternetTarifeler extends Component {
          <ScrollView style={{ backgroundColor: '#002233' }}>
            <View style={styles.containerStyle}>
            <View style={styles.containerHeaderStyle}>
-                <Text style={{ color: 'white', fontSize: 35 }}>{} Sağlayıcı</Text>
+                <Text style={{ color: 'white', fontSize: 35 }}>{} Sağlayıcı {this.props.gb}</Text>
            </View>
                 <View>
                     <Text style={styles.headerStyle}>{} tarife adı</Text>
