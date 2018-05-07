@@ -1,14 +1,32 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
-import { Text, Button, View, ScrollView } from 'react-native';
+import { Text, Button, View, ScrollView, ListView } from 'react-native';
+import { Actions } from 'react-native-router-flux';
+import { connect } from 'react-redux';
 //import Card from '../ortak/Card';
 //import CardSection from '../ortak/CardSection';
+import { mobilListData } from '../actions';
 
 
 class MobilTarifeler extends Component {
+
+    componentWillMount() {
+      this.props.mobilListData();
+    }
+
+    componentWillReceiveProps(nextProps) {
+      const ds = new ListView.DataSource({
+        rowHasChanged: (r1, r2) => r1 !== r2
+      });
+      this.dataSource = ds.cloneWithRows(nextProps.mobilsArray);
+    }
+
     clickLogin() {
 
     }
+
     render() {
+      console.log(this.props.mobilsArray);
         return (
          <ScrollView style={{ backgroundColor: '#002233' }}>
            <View style={styles.containerStyle}>
@@ -23,7 +41,7 @@ class MobilTarifeler extends Component {
                     <Text>SMS: {}</Text>
                     <Text>İnternet: {} GB</Text>
                     <Text>Tarife Çeşidi: {}</Text>
-                    <View style={{ textAlign: 'center', margin: 12 }}>
+                    <View style={{ margin: 12 }}>
                     <Text style={{ textAlign: 'center', fontSize: 22 }}>Fiyat: {} TL</Text>                        
                     </View>      
 
@@ -54,7 +72,6 @@ const styles = {
       },
 
       subContainerStyle: {
-        fontSize: 18,
         borderBottomWidth: 0,
         padding: 4,
         backgroundColor: '#fff',
@@ -71,5 +88,11 @@ const styles = {
         fontSize: 37,
       }
 };
+const mapStateToProps = ({ mobilDataResponse }) => {
+  const mobilsArray = _.map(mobilDataResponse, (val, id) => {
+    return { val, id };
+  });
+  return { mobilsArray };
+};
 
-export default MobilTarifeler;
+export default connect(mapStateToProps, { mobilListData })(MobilTarifeler);
