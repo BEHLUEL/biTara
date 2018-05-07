@@ -17,6 +17,6 @@ export const mobilListData = () => {
         firebase.database().ref('/Mobil/TurkTelekom/Faturali/Bireysel')
         .on('value', snapshot => {
             dispatch({ type: MOBIL_LIST_DATA_SUCCESS, payload: snapshot.val() });
-        });
+        });    
     };
 };

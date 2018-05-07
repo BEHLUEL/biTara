@@ -29,6 +29,7 @@ export default class App extends Component {
       projectId: 'bitara-84874',
       storageBucket: 'bitara-84874.appspot.com',
       messagingSenderId: '492432044814'
+      
     });
     
     var database = firebase.database();
