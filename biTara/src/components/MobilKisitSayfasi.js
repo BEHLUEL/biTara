@@ -12,27 +12,25 @@ class MobilKisitSayfasi extends Component {
             this.props.mobilKisitChange({ props: 'turkcell', value: deger });
         } else if (isim === 'vd') {
             this.props.mobilKisitChange({ props: 'vodafone', value: deger });
-        
+        }
         if (deger === false) {
             this.props.mobilKisitChange({ props: 'tumu', value: 'Tümünü işaretle' });
         }
-    }
     }
     click() {
         // const tumu = '';
         // const hicbiri = 'İşaretleri kaldır';
         if (this.props.tumu === 'İşaretleri kaldır') {
-        this.props.mobilKisitChange({ props: 'tumu', value: 'Tümünü işaretle' });
-        this.props.mobilKisitChange({ props: 'turktelekommobil', value: false });
-        this.props.mobilKisitChange({ props: 'turkcell', value: false });
-        this.props.mobilKisitChange({ props: 'vodafone', value: false });    
+            this.props.mobilKisitChange({ props: 'tumu', value: 'Tümünü işaretle' });
+            this.props.mobilKisitChange({ props: 'turktelekommobil', value: false });
+            this.props.mobilKisitChange({ props: 'turkcell', value: false });
+            this.props.mobilKisitChange({ props: 'vodafone', value: false });
         } else if (this.props.tumu === 'Tümünü işaretle') {
-        this.props.mobilKisitChange({ props: 'tumu', value: 'İşaretleri kaldır' });
-        this.props.mobilKisitChange({ props: 'turktelekommobil', value: true });
-        this.props.mobilKisitChange({ props: 'turkcell', value: true });
-        this.props.mobilKisitChange({ props: 'vodafone', value: true });
+            this.props.mobilKisitChange({ props: 'tumu', value: 'İşaretleri kaldır' });
+            this.props.mobilKisitChange({ props: 'turktelekommobil', value: true });
+            this.props.mobilKisitChange({ props: 'turkcell', value: true });
+            this.props.mobilKisitChange({ props: 'vodafone', value: true });
         }
-    
     }
     render() {
         return (
@@ -40,108 +38,117 @@ class MobilKisitSayfasi extends Component {
                 <Text style={styles.baslik}>biTara</Text>
                 <Text style={styles.altbaslik}>Mobil Tarife</Text>
                 <View style={styles.main}>
-                    <Text
-                        style={{ fontSize: 16, color: '#fff', textDecorationLine: 'underline' }}
-                    >GSM Operatörü
+                    <View style={{ margin: 10 }} >
+                        <Text
+                            style={{ fontSize: 16, color: '#fff', textDecorationLine: 'underline', marginBottom: 5 }}
+                        >GSM Operatörü
                     </Text>
+                        <View style={{ margin: 10, marginTop: 5 }} >
 
-                    <Text
-                        style={{ fontSize: 14, color: '#fff', textDecorationLine: 'underline', marginTop: 5, marginLeft: 15, marginBottom: 3 }}
-                        onPress={this.click.bind(this)}
-                    >{this.props.tumu}
-                    </Text>
+                            <Text
+                                style={{ fontSize: 14, color: '#fff', textDecorationLine: 'underline', marginTop: 5, marginLeft: 15, marginBottom: 3 }}
+                                onPress={this.click.bind(this)}
+                            >{this.props.tumu}
+                            </Text>
 
-                    <View style={{ flexDirection: 'row' }}>
-                        <CheckBox
-                            value={this.props.turktelekommobil}
-                            title='Türk Telekom'
-                            onValueChange={deger => this.clickTarife('tt', deger)}
-                        />
-                        <Text style={{ marginTop: 5, color: '#fff' }}>Türk Telekom</Text>
+                            <View style={{ flexDirection: 'row' }}>
+                                <CheckBox
+                                    value={this.props.turktelekommobil}
+                                    title='Türk Telekom'
+                                    onValueChange={deger => this.clickTarife('tt', deger)}
+                                />
+                                <Text style={{ marginTop: 5, color: '#fff' }}>Türk Telekom</Text>
+                            </View>
+
+                            <View style={{ flexDirection: 'row' }}>
+                                <CheckBox
+                                    checked={{ fillColor: 'red' }}
+                                    value={this.props.turkcell}
+                                    title='Turkcell'
+                                    onValueChange={deger => this.clickTarife('tc', deger)}
+                                />
+                                <Text style={{ marginTop: 5, color: '#fff' }}>Turkcell</Text>
+                            </View>
+
+                            <View style={{ flexDirection: 'row' }}>
+                                <CheckBox
+                                    value={this.props.vodafone}
+                                    title='Vodafone'
+                                    onValueChange={deger => this.clickTarife('vd', deger)}
+                                />
+                                <Text style={{ marginTop: 5, color: '#fff' }}>Vodafone</Text>
+                            </View>
+                        </View>
+                        <View style={{ marginBottom: 10 }}></View>
+                        <Text style={{ fontSize: 16, color: '#fff', textDecorationLine: 'underline' }}>Kullanım Miktarları</Text>
+                        <View style={{ margin: 10 }} >
+
+                            <Text style={styles.mainText}>Dakika:</Text>
+                            <Text style={{ color: '#fff' }}>{this.props.dakika}</Text>
+                            <Slider
+                                minimumValue={0}
+                                maximumValue={10000}
+                                value={this.props.dakika}
+                                onValueChange={deger => this.props.mobilKisitChange({ props: 'dakika', value: deger })}
+                                step={1}
+                            />
+
+                            <Text style={styles.mainText}>SMS:</Text>
+                            <Text style={{ color: '#fff' }}>{this.props.sms}</Text>
+                            <Slider
+
+                                minimumValue={0}
+                                maximumValue={10000}
+                                value={this.props.sms}
+                                onValueChange={deger => this.props.mobilKisitChange({ props: 'sms', value: deger })}
+                                step={1}
+                            />
+
+                            <Text style={styles.mainText}>İnternet:</Text>
+                            <Text style={{ color: '#fff' }}>{this.props.internet}</Text>
+                            <Slider
+                                minimumValue={0}
+                                maximumValue={10}
+                                value={this.props.internet}
+                                minimumTrackTintColor='transparent'
+                                onValueChange={deger => this.props.mobilKisitChange({ props: 'internet', value: deger })}
+                                step={1}
+                            />
+                        </View>
+                        <View style={{ marginBottom: 15 }}></View>
+                        <Text
+                            style={{ fontSize: 16, color: '#fff' }}
+                        >Tarife Tipi:</Text>
+                        <View style={{ margin: 10 }} >
+                            <View style={{ flexDirection: 'row' }}>
+                                <CheckBox
+                                    value={this.props.faturasiz_bireysel}
+                                    title='Faturasız'
+                                    onValueChange={deger => this.props.mobilKisitChange({ props: 'faturasiz_bireysel', value: deger })}
+                                />
+                                <Text style={{ marginTop: 5, color: '#fff' }}>Faturasız/Bireysel</Text>
+                            </View>
+
+                            <View style={{ flexDirection: 'row' }}>
+                                <CheckBox
+                                    value={this.props.faturali_bireysel}
+                                    title='Faturasız'
+                                    onValueChange={deger => this.props.mobilKisitChange({ props: 'faturali_bireysel', value: deger })}
+                                />
+                                <Text style={{ marginTop: 5, color: '#fff' }}>Faturalı/Bireysel</Text>
+                            </View>
+
+                            <View style={{ flexDirection: 'row' }}>
+                                <CheckBox
+                                    value={this.props.faturali_kurumsal}
+                                    title='Faturasız'
+                                    onValueChange={deger => this.props.mobilKisitChange({ props: 'faturali_kurumsal', value: deger })}
+                                />
+                                <Text style={{ marginTop: 5, color: '#fff' }}>Faturalı/Kurumsal</Text>
+                            </View>
+                        </View>
+                        <View style={{ marginBottom: 15 }}></View>
                     </View>
-
-                    <View style={{ flexDirection: 'row' }}>
-                        <CheckBox
-                            value={this.props.turkcell}
-                            title='Turkcell'
-                            onValueChange={deger => this.clickTarife('tc', deger)}
-                        />
-                        <Text style={{ marginTop: 5, color: '#fff' }}>Turkcell</Text>
-                    </View>
-
-                    <View style={{ flexDirection: 'row' }}>
-                        <CheckBox
-                            value={this.props.vodafone}
-                            title='Vodafone'
-                            onValueChange={deger => this.clickTarife('vd', deger)}
-                        />
-                        <Text style={{ marginTop: 5, color: '#fff' }}>Vodafone</Text>
-                    </View>
-
-                    <View style={{ marginBottom: 10 }}></View>
-                    <Text style={{ fontSize: 16, color: '#fff', textDecorationLine: 'underline' }}>Kullanım Miktarları</Text>
-                    <Text style={styles.mainText}>Dakika:</Text>
-                    <Text style={{ color: '#fff' }}>{this.props.dakika}</Text>
-                    <Slider
-                        minimumValue={0}
-                        maximumValue={10000}
-                        value={this.props.dakika}
-                        onValueChange={deger => this.props.mobilKisitChange({ props: 'dakika', value: deger })}
-                        step={1}
-                    />
-
-                    <Text style={styles.mainText}>SMS:</Text>
-                    <Text style={{ color: '#fff' }}>{this.props.sms}</Text>
-                    <Slider
-                        minimumValue={0}
-                        maximumValue={10000}
-                        value={this.props.sms}
-                        onValueChange={deger => this.props.mobilKisitChange({ props: 'sms', value: deger })}
-                        step={1}
-                    />
-
-                    <Text style={styles.mainText}>İnternet:</Text>
-                    <Text style={{ color: '#fff' }}>{this.props.internet}</Text>
-                    <Slider
-                        minimumValue={0}
-                        maximumValue={10}
-                        value={this.props.internet}
-                        onValueChange={deger => this.props.mobilKisitChange({ props: 'internet', value: deger })}
-                        step={1}
-                    />
-
-                    <View style={{ marginBottom: 15 }}></View>
-                    <Text
-                        style={{ fontSize: 16, color: '#fff' }}
-                    >Tarife Tipi:</Text>
-                    <View style={{ flexDirection: 'row' }}>
-                        <CheckBox
-                            value={this.props.faturasiz_bireysel}
-                            title='Faturasız'
-                            onValueChange={deger => this.props.mobilKisitChange({ props: 'faturasiz_bireysel', value: deger })}
-                        />
-                        <Text style={{ marginTop: 5, color: '#fff' }}>Faturasız/Bireysel</Text>
-                    </View>
-
-                    <View style={{ flexDirection: 'row' }}>
-                        <CheckBox
-                            value={this.props.faturali_bireysel}
-                            title='Faturasız'
-                            onValueChange={deger => this.props.mobilKisitChange({ props: 'faturali_bireysel', value: deger })}
-                        />
-                        <Text style={{ marginTop: 5, color: '#fff' }}>Faturalı/Bireysel</Text>
-                    </View>
-
-                    <View style={{ flexDirection: 'row' }}>
-                        <CheckBox
-                            value={this.props.faturali_kurumsal}
-                            title='Faturasız'
-                            onValueChange={deger => this.props.mobilKisitChange({ props: 'faturali_kurumsal', value: deger })}
-                        />
-                        <Text style={{ marginTop: 5, color: '#fff' }}>Faturalı/Kurumsal</Text>
-                    </View>
-
-                    <View style={{ marginBottom: 15 }}></View>
                 </View>
 
                 <Button
@@ -162,13 +169,13 @@ const styles = {
         borderWidth: 1,
         borderRadius: 5,
         borderColor: '#001B29',
-        backgroundColor: '#002A40',
+        backgroundColor: 'rgb(160,170,180)',
         padding: 5,
-        marginBottom: 10
+        margin: 10
     },
 
     body: {
-        backgroundColor: '#002233',
+
         flex: 1,
         padding: 5,
         overflow: 'hidden'

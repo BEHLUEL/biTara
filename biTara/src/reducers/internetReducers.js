@@ -1,13 +1,14 @@
 import { INTERNET_KISIT_CHANGED } from '../actions/types';
 
 const INITIAL_STATE = {
-    tumu: false,
+    tumu: 'Tümünü işaretle',
     turktelekom: false,
     superonline: false,
     kablonet: false,
     turknet: false,
     saglayicilar: false,
-    limit: false,
+    limitsiz: false,
+    limitli: false,
     hiz: 0,
     gb: 0,
     tv: false,

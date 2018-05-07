@@ -10,11 +10,12 @@ import InternetKisitSayfasi from './src/components/InternetKisitSayfasi';
 
 const RouterComponent = () => (
         <Router style={styles.container} >
-            <Scene style={styles.container} key="bitara">
+            <Scene style={{ backgroundColor: 'red' }} key="bitara">
                 <Scene  
+                hideNavBar={1}
                 key="girissayfasi" 
                 component={GirisSayfasi} 
-                title="Giriş Sayfası" 
+                title="" 
                 />
 
                 <Scene 
@@ -47,9 +48,13 @@ const RouterComponent = () => (
                 />
 
                 <Scene 
+                navTransparent={1}
+                hideNavBar={1}
+                navigationBarStyle={{ backgroundColor: 'transparent' }}
+                //titleStyle={{ color: 'rgb(120,120,180)', align: 'center' }}
                 key="internetkisitsayfasi" 
                 component={InternetKisitSayfasi} 
-                title="Internet Tarife Arama" 
+                title="" 
                 />
 
             </Scene>
