@@ -19,7 +19,7 @@ class MobilAyrinti extends Component {
                 <Text style={styles.bodyFontStyle}>Telefon: {}</Text>               
                 
                 <View>
-                    <Text style={{ textAlign: 'center', fontSize: 20, marginTop: 15, color: 'rgb(190,200,200)' }}>Aylık ... {} TL</Text>
+                    <Text style={{ textAlign: 'center', fontSize: 20, marginTop: 15, color: '#333333' }}>Aylık ... {} TL</Text>
                 </View>
             </View>
             <View style={styles.containerStyle}>
@@ -39,8 +39,7 @@ class MobilAyrinti extends Component {
 const styles = {
     containerStyle: {
         borderWidth: 1,
-        borderRadius: 5,
-        borderColor: '#00CCEE',
+        borderColor: '#8C7BFF',
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.1,
@@ -50,40 +49,38 @@ const styles = {
       },
 
       subContainerStyle: {
-        fontSize: 18,
-        borderBottomWidth: 0,
-        padding: 4,
-        backgroundColor: '#fff',
-        justifyContent: 'flex-start',
-        //flexDirection: 'row',
-        borderColor: '#fff',
-        position: 'relative',
+          borderBottomWidth: 0,
+          padding: 4,
+          backgroundColor: '#fff',
+          justifyContent: 'flex-start',
+          //flexDirection: 'row',
+          borderColor: '#fff',
+          position: 'relative',
       },
 
       containerHeaderStyle: {
-        backgroundColor: '#00CCEE',
+          backgroundColor: '#8C7BFF',
       },
 
     headerTextStyle: {
         fontSize: 30,
         textAlign: 'center',
         margin: 20,
-        marginTop: 30,
-        color: 'rgb(190,200,200)',
+        color: '#14153A',
     },
 
     containerHeaderTextStyle: {
         fontSize: 18,
         textAlign: 'center',
         margin: 3,
-        color: '#002233',
+        color: '#FFFFFF',
     },
 
     subTextStyle: {
         fontSize: 15,
         textAlign: 'center',
         margin: 2,
-        color: 'rgb(190,200,200)',
+        color: '#333333',
     },
 
     bodyStyle: {
@@ -92,7 +89,7 @@ const styles = {
 
     bodyFontStyle: {
         fontSize: 15,
-        color: 'rgb(160,200,220)',
+        color: '#333333',
     },
 };
 

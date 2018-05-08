@@ -35,7 +35,7 @@ class MobilTarifeler extends Component {
   render() {
     console.log(this.props.mobilsArray);
     return (
-      <ScrollView style={{ backgroundColor: '#002233' }}>
+      <ScrollView style={{ backgroundColor: '#F4F6F9' }}>
         <ListView
           enableEmptySections
           dataSource={this.dataSource}

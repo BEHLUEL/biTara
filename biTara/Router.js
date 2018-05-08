@@ -9,10 +9,11 @@ import MobilKisitSayfasi from './src/components/MobilKisitSayfasi';
 import InternetKisitSayfasi from './src/components/InternetKisitSayfasi';
 
 const RouterComponent = () => (
-        <Router style={styles.container} >
+        <Router titleStyle={{ color: '#14153A' }}>
             <Scene style={styles.container} key="bitara">
                 <Scene  
-                key="girissayfasi" 
+                key="girissayfasi"
+                hideNavBar={true}
                 component={GirisSayfasi} 
                 title="Giriş Sayfası" 
                 />

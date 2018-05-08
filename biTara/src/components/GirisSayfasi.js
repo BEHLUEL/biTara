@@ -10,13 +10,13 @@ class GirisSayfasi extends Component {
         </Text>
         <View style={styles.buttonContainer}>
           <Button
-            title="Mobil"
+            title="MOBİL"
             onPress={Actions.mobilkisitsayfasi}
           />
         </View>
         <View style={styles.buttonContainer}>
           <Button
-            title="İnternet"
+            title="İNTERNET"
             color="#841584"
             onPress={Actions.internetkisitsayfasi}
           />
@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
   container: {
    flex: 1,
    justifyContent: 'center',
+      backgroundColor: '#F4F6F9'
   },
 
   buttonContainer: {
@@ -38,7 +39,7 @@ const styles = StyleSheet.create({
   },
 
   welcome: {
-    color: '#fff',
+    color: '#14153A',
     fontSize: 60,
     textAlign: 'center',
     margin: 30,

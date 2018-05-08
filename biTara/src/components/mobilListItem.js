@@ -22,21 +22,21 @@ class ListItem extends Component {
                 return (
                 <View style={styles.containerStyle}>
                 <View style={styles.containerHeaderStyle}>
-                    <Text style={{ color: 'white', fontSize: 35, textAlign: 'center' }}>{Operator}</Text>
+                    <Text style={{ color: 'white', fontSize: 20, textAlign: 'center' }}>{Operator}</Text>
                 </View>
                 <View>
                     <Text style={styles.headerStyle}>{Ad}</Text>
                 </View>
                 <View style={styles.subContainerStyle}>
-                    <Text>Dakika: {Dakika} dk</Text>
-                    <Text>SMS: {Sms}</Text>
-                    <Text>İnternet: {Internet} GB</Text>
-                    <Text>Tarife Çeşidi: {Tur}</Text>
+                    <Text style={styles.textStyle}>Dakika: {Dakika} dk</Text>
+                    <Text style={styles.textStyle}>SMS: {Sms}</Text>
+                    <Text style={styles.textStyle}>İnternet: {Internet} GB</Text>
+                    <Text style={styles.textStyle}>Tarife Çeşidi: {Tur}</Text>
                     <View style={{ margin: 12 }}>
-                        <Text style={{ textAlign: 'center', fontSize: 22 }}>Fiyat: {Fiyat} TL</Text>
+                        <Text style={{ textAlign: 'center', fontSize: 22, color: '#333333' }}>Fiyat: {Fiyat} TL</Text>
                     </View>
 
-                    <Button style={{ marginTop: 10, marginBottom: 10 }} color="#00CCEE" onPress={this.clickLogin.bind(this)} title='Görüntüle' />
+                    <Button style={{ marginTop: 10, marginBottom: 10 }} color="#D9002E" onPress={this.clickLogin.bind(this)} title='Görüntüle' />
                 </View>
             </View>
             );
@@ -48,18 +48,19 @@ const styles = {
     containerStyle: {
         borderWidth: 1,
         borderRadius: 5,
-        borderColor: '#ddd',
+        borderColor: '#EEF0F3',
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.1,
         shadowRadius: 10,
         elevation: 1,
         margin: 10,
+        backgroundColor: '#8C7BFF'
       },
 
       containerHeaderStyle: {
         margin: 10,
-        backgroundColor: '#002233',
+        backgroundColor: '#8C7BFF',
       },
 
       subContainerStyle: {
@@ -73,11 +74,15 @@ const styles = {
       },
       
       headerStyle: {
-        color: '#00CCEE',
+        color: '#14153A',
         backgroundColor: '#fff',
         textAlign: 'center',
-        fontSize: 37,
-      }
+        fontSize: 20
+      },
+
+    textStyle: {
+        color: '#333333'
+    }
 };
 const mapToStateProps = ({ mobilResponse }) => {
     const { tumu,

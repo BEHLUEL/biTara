@@ -47,14 +47,14 @@ class InternetKisitSayfasi extends Component {
                 <Text style={styles.baslik}>biTara</Text>
                 <Text style={styles.altbaslik}>İnternet</Text>
                 <View style={styles.main}>
-                    <Text style={{ fontSize: 16, color: '#fff', textDecorationLine: 'underline', marginBottom: 10 }}>Şirket</Text>
+                    <Text style={{ fontSize: 16, color: '#14153A', marginBottom: 10 }}>Şirket</Text>
                     <View style={{ flexDirection: 'row' }}>
                         <CheckBox
                             value={this.props.tumu}
                             title='Tümü'
                             onValueChange={tumu => this.click(tumu)}
                         />
-                        <Text style={{ marginTop: 5, color: '#fff', fontSize: 14, textDecorationLine: 'underline' }}>Tümünü işaretle</Text>
+                        <Text style={{ marginTop: 5, color: '#333333', fontSize: 14 }}>Tümünü işaretle</Text>
                     </View>
 
                     <View style={{ flexDirection: 'row' }}>
@@ -63,7 +63,7 @@ class InternetKisitSayfasi extends Component {
                             title='Türk Telekom'
                             onValueChange={turktelekom => this.clickTarife(turktelekom, 'tt')}
                         />
-                        <Text style={{ marginTop: 5, color: '#fff' }}>Türk Telekom</Text>
+                        <Text style={{ marginTop: 5, color: '#333333' }}>Türk Telekom</Text>
                     </View>
                     <View style={{ flexDirection: 'row' }}>
                         <CheckBox
@@ -71,7 +71,7 @@ class InternetKisitSayfasi extends Component {
                             title='Superonline'
                             onValueChange={turktelekom => this.clickTarife(turktelekom, 'so')}
                         />
-                        <Text style={{ marginTop: 5, color: '#fff' }}>Superonline</Text>
+                        <Text style={{ marginTop: 5, color: '#333333' }}>Superonline</Text>
                     </View>
 
                     <View style={{ flexDirection: 'row' }}>
@@ -80,7 +80,7 @@ class InternetKisitSayfasi extends Component {
                             value={this.props.kablonet}
                             onValueChange={turktelekom => this.clickTarife(turktelekom, 'kn')}
                         />
-                        <Text style={{ marginTop: 5, color: '#fff' }}>Kablonet</Text>
+                        <Text style={{ marginTop: 5, color: '#333333' }}>Kablonet</Text>
                     </View>
                     <View style={{ flexDirection: 'row' }}>
                         <CheckBox
@@ -88,11 +88,11 @@ class InternetKisitSayfasi extends Component {
                             title='Turknet'
                             onValueChange={turktelekom => this.clickTarife(turktelekom, 'tn')}
                         />
-                        <Text style={{ marginTop: 5, color: '#fff' }}>Turk.net</Text>
+                        <Text style={{ marginTop: 5, color: '#333333' }}>Turk.net</Text>
                     </View>
 
                     <View style={{ marginBottom: 10 }}></View>
-                    <Text style={{ fontSize: 16, color: '#fff', textDecorationLine: 'underline', marginBottom: 10 }}>Kullanım Miktarları</Text>
+                    <Text style={{ fontSize: 16, color: '#14153A', marginBottom: 10 }}>Kullanım Miktarları</Text>
                     <Text style={styles.mainText}>Kota:</Text>
                     <Text>{this.props.gb}</Text>
                     <Slider
@@ -105,9 +105,9 @@ class InternetKisitSayfasi extends Component {
 
                     <Text style={styles.mainText}>Limit</Text>
 
-
                     <View style={{ marginBottom: 15 }}></View>
-                    <Text style={{ fontSize: 16, color: '#fff' }}>Hız:</Text>
+                    <Text style={{ fontSize: 16, color: '#333333' }}>Hız:</Text>
+                    <Text>{this.props.hiz}</Text>
                     <Slider
                         minimumValue={3}
                         maximumValue={100}
@@ -124,16 +124,17 @@ class InternetKisitSayfasi extends Component {
                             title='TV'
                             onValueChange={tv => this.props.internetKisitChange({ props: 'tv', value: tv })}
                         />
-                        <Text style={{ marginTop: 5, color: '#fff' }}>İçinde televizyon olan paketleri görmek istiyorum.</Text>
+                        <Text style={{ marginTop: 5, color: '#333333' }}>İçinde televizyon olan paketleri görmek istiyorum.</Text>
                     </View>
                 </View>
 
                 <Button
                     style={styles.button}
                     title=" Tarife Ara"
-                    color="#23913C"
+                    color="#8C7BFF"
                     onPress={this.clickAra.bind(this)}
                 />
+                <View style={{ marginBottom: 25 }}></View>
             </ScrollView>
         );
     };
@@ -143,40 +144,40 @@ const styles = {
     main: {
         borderWidth: 1,
         borderRadius: 5,
-        borderColor: '#001B29',
-        backgroundColor: '#002A40',
-        padding: 5,
+        borderColor: '#EEF0F3',
+        backgroundColor: '#FFFFFF',
+        padding: 10,
         marginBottom: 10
     },
 
     body: {
-        backgroundColor: '#002233',
         flex: 1,
-        padding: 5,
-        overflow: 'scroll'
+        padding: 8,
+        overflow: 'hidden',
+        backgroundColor: '#F4F6F9'
     },
 
     baslik: {
         fontSize: 32,
-        color: '#23913C',
+        color: '#14153A',
         textAlign: 'center'
     },
 
     altbaslik: {
         fontSize: 16,
         textAlign: 'center',
-        color: '#fff',
+        color: '#A6A8B7',
         marginBottom: 15
     },
 
     mainText: {
-        color: '#fff',
+        color: '#333333',
         fontSize: 16,
         marginBottom: 5,
     },
 
     button: {
-        borderRadius: 10
+        borderRadius: 30
     }
 };
 const mapToStateProps = ({ internetResponse }) => {

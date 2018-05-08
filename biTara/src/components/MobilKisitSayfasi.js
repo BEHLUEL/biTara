@@ -41,12 +41,12 @@ class MobilKisitSayfasi extends Component {
                 <Text style={styles.altbaslik}>Mobil Tarife</Text>
                 <View style={styles.main}>
                     <Text
-                        style={{ fontSize: 16, color: '#fff', textDecorationLine: 'underline' }}
+                        style={{ fontSize: 16, color: '#14153A' }}
                     >GSM Operatörü
                     </Text>
 
                     <Text
-                        style={{ fontSize: 14, color: '#fff', textDecorationLine: 'underline', marginTop: 5, marginLeft: 15, marginBottom: 3 }}
+                        style={{ fontSize: 14, color: '#212361', textDecorationLine: 'underline', marginTop: 5, marginLeft: 15, marginBottom: 3 }}
                         onPress={this.click.bind(this)}
                     >{this.props.tumu}
                     </Text>
@@ -57,7 +57,7 @@ class MobilKisitSayfasi extends Component {
                             title='Türk Telekom'
                             onValueChange={deger => this.clickTarife('tt', deger)}
                         />
-                        <Text style={{ marginTop: 5, color: '#fff' }}>Türk Telekom</Text>
+                        <Text style={{ marginTop: 5, color: '#333333' }}>Türk Telekom</Text>
                     </View>
 
                     <View style={{ flexDirection: 'row' }}>
@@ -66,7 +66,7 @@ class MobilKisitSayfasi extends Component {
                             title='Turkcell'
                             onValueChange={deger => this.clickTarife('tc', deger)}
                         />
-                        <Text style={{ marginTop: 5, color: '#fff' }}>Turkcell</Text>
+                        <Text style={{ marginTop: 5, color: '#333333' }}>Turkcell</Text>
                     </View>
 
                     <View style={{ flexDirection: 'row' }}>
@@ -75,13 +75,13 @@ class MobilKisitSayfasi extends Component {
                             title='Vodafone'
                             onValueChange={deger => this.clickTarife('vd', deger)}
                         />
-                        <Text style={{ marginTop: 5, color: '#fff' }}>Vodafone</Text>
+                        <Text style={{ marginTop: 5, color: '#333333' }}>Vodafone</Text>
                     </View>
 
                     <View style={{ marginBottom: 10 }}></View>
-                    <Text style={{ fontSize: 16, color: '#fff', textDecorationLine: 'underline' }}>Kullanım Miktarları</Text>
+                    <Text style={{ fontSize: 16, color: '#14153A' }}>Kullanım Miktarları</Text>
                     <Text style={styles.mainText}>Dakika:</Text>
-                    <Text style={{ color: '#fff' }}>{this.props.dakika}</Text>
+                    <Text style={{ color: '#000000' }}>{this.props.dakika}</Text>
                     <Slider
                         minimumValue={0}
                         maximumValue={10000}
@@ -91,7 +91,7 @@ class MobilKisitSayfasi extends Component {
                     />
 
                     <Text style={styles.mainText}>SMS:</Text>
-                    <Text style={{ color: '#fff' }}>{this.props.sms}</Text>
+                    <Text style={{ color: '#000000' }}>{this.props.sms}</Text>
                     <Slider
                         minimumValue={0}
                         maximumValue={10000}
@@ -101,7 +101,7 @@ class MobilKisitSayfasi extends Component {
                     />
 
                     <Text style={styles.mainText}>İnternet:</Text>
-                    <Text style={{ color: '#fff' }}>{this.props.internet}</Text>
+                    <Text style={{ color: '#000000' }}>{this.props.internet}</Text>
                     <Slider
                         minimumValue={0}
                         maximumValue={10}
@@ -112,7 +112,7 @@ class MobilKisitSayfasi extends Component {
 
                     <View style={{ marginBottom: 15 }}></View>
                     <Text
-                        style={{ fontSize: 16, color: '#fff' }}
+                        style={{ fontSize: 16, color: '#14153A' }}
                     >Tarife Tipi:</Text>
                     <View style={{ flexDirection: 'row' }}>
                         <CheckBox
@@ -120,7 +120,7 @@ class MobilKisitSayfasi extends Component {
                             title='Faturasız'
                             onValueChange={deger => this.props.mobilKisitChange({ props: 'faturasiz_bireysel', value: deger })}
                         />
-                        <Text style={{ marginTop: 5, color: '#fff' }}>Faturasız/Bireysel</Text>
+                        <Text style={{ marginTop: 5, color: '#333333' }}>Faturasız/Bireysel</Text>
                     </View>
 
                     <View style={{ flexDirection: 'row' }}>
@@ -129,7 +129,7 @@ class MobilKisitSayfasi extends Component {
                             title='Faturasız'
                             onValueChange={deger => this.props.mobilKisitChange({ props: 'faturali_bireysel', value: deger })}
                         />
-                        <Text style={{ marginTop: 5, color: '#fff' }}>Faturalı/Bireysel</Text>
+                        <Text style={{ marginTop: 5, color: '#333333' }}>Faturalı/Bireysel</Text>
                     </View>
 
                     <View style={{ flexDirection: 'row' }}>
@@ -138,7 +138,7 @@ class MobilKisitSayfasi extends Component {
                             title='Faturasız'
                             onValueChange={deger => this.props.mobilKisitChange({ props: 'faturali_kurumsal', value: deger })}
                         />
-                        <Text style={{ marginTop: 5, color: '#fff' }}>Faturalı/Kurumsal</Text>
+                        <Text style={{ marginTop: 5, color: '#333333' }}>Faturalı/Kurumsal</Text>
                     </View>
 
                     <View style={{ marginBottom: 15 }}></View>
@@ -147,11 +147,11 @@ class MobilKisitSayfasi extends Component {
                 <Button
                     style={styles.button}
                     title="Tarife Ara"
-                    color="#23913C"
+                    color="#8C7BFF"
                     onPress={Actions.mobiltarifeler}
                 />
 
-                <View style={{ marginBottom: 15 }}></View>
+                <View style={{ marginBottom: 25 }}></View>
             </ScrollView>
         );
     }
@@ -161,39 +161,40 @@ const styles = {
     main: {
         borderWidth: 1,
         borderRadius: 5,
-        borderColor: '#001B29',
-        backgroundColor: '#002A40',
-        padding: 5,
+        borderColor: '#EEF0F3',
+        backgroundColor: '#FFFFFF',
+        padding: 10,
         marginBottom: 10
     },
 
     body: {
         backgroundColor: '#002233',
         flex: 1,
-        padding: 5,
-        overflow: 'hidden'
+        padding: 8,
+        overflow: 'hidden',
+        backgroundColor: '#F4F6F9'
     },
 
     baslik: {
         fontSize: 32,
-        color: '#23913C',
+        color: '#14153A',
         textAlign: 'center'
     },
 
     altbaslik: {
         fontSize: 16,
         textAlign: 'center',
-        color: '#fff',
+        color: '#A6A8B7',
         marginBottom: 15
     },
 
     mainText: {
-        color: '#fff',
+        color: '#333333',
         fontSize: 16
     },
 
     button: {
-        borderRadius: 10
+        borderRadius: 30
     }
 };
 
