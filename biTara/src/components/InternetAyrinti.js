@@ -9,17 +9,17 @@ class MobilAyrinti extends Component {
             <Text style={styles.headerTextStyle}> Tarife Adı {} </Text>
             </View>
             <View style={styles.bodyStyle}>
-                <Text style={styles.bodyFontStyle}>İnternet Sağlayıcısı: {}</Text>
-                <Text style={styles.bodyFontStyle}>Hız: {} Mbps</Text>
-                <Text style={styles.bodyFontStyle}>Limit: {}</Text>
-                <Text style={styles.bodyFontStyle}>Kota: {}</Text>
-                <Text style={styles.bodyFontStyle}>Kampanya Türü: {}</Text>
-                <Text style={styles.bodyFontStyle}>Taahhüt: {}</Text>
-                <Text style={styles.bodyFontStyle}>Tv: {}</Text>
-                <Text style={styles.bodyFontStyle}>Telefon: {}</Text>               
+                <Text style={styles.bodyFontStyle}>İnternet Sağlayıcısı: {this.props.tarife.Saglayici}</Text>
+                <Text style={styles.bodyFontStyle}>Hız: {this.props.tarife.Hiz} Mbps</Text>
+                <Text style={styles.bodyFontStyle}>Limit: {this.props.tarife.Limit}</Text>
+                <Text style={styles.bodyFontStyle}>Kota: {this.props.tarife.Kota}</Text>
+                <Text style={styles.bodyFontStyle}>Kampanya Türü: {this.props.tarife.Tur}</Text>
+                <Text style={styles.bodyFontStyle}>Taahhüt: {this.props.tarife.Taahhut}</Text>
+                <Text style={styles.bodyFontStyle}>Tv: {this.props.tarife.Tv}</Text>
+                <Text style={styles.bodyFontStyle}>Telefon: {this.props.tarife.Tel}</Text>               
                 
                 <View>
-                    <Text style={{ textAlign: 'center', fontSize: 20, marginTop: 15, color: '#333333' }}>Aylık ... {} TL</Text>
+                    <Text style={{ textAlign: 'center', fontSize: 20, marginTop: 15, color: '#333333' }}>Aylık ... {this.props.tarife.Fiyat} TL</Text>
                 </View>
             </View>
             <View style={styles.containerStyle}>

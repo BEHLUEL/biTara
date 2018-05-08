@@ -14,17 +14,18 @@ class ListItem extends Component {
                 return (
                    <View style={styles.containerStyle}>
            <View style={styles.containerHeaderStyle}>
-                <Text style={{ color: 'white', fontSize: 20, textAlign: 'center' }}>{} Sağlayıcı {this.props.gb}</Text>
+                <Text style={{ color: 'white', fontSize: 20, textAlign: 'center' }}>{Saglayici} Sağlayıcı {this.props.gb}</Text>
            </View>
                 <View>
-                    <Text style={styles.headerStyle}>{} tarife adı</Text>
+                    <Text style={styles.headerStyle}>{Ad} tarife adı</Text>
                 </View>
                 <View style={styles.subContainerStyle}>
-                    <Text style={styles.textStyle}>Hız: {}</Text>
-                    <Text style={styles.textStyle}>Limit: {}</Text>
-                    <Text style={styles.textStyle}>Taahhüt: {} </Text>
+                    <Text style={styles.textStyle}>Hız: {Hiz}</Text>
+                    <Text style={styles.textStyle}>Limit: {Limit}</Text>
+                    <Text style={styles.textStyle}>Taahhüt: {Taahhut} </Text>
+                    <Text style={styles.textStyle}>Kampanya Türü: {Tur} </Text>
                     <View style={{ margin: 12 }}>
-                    <Text style={{ textAlign: 'center', fontSize: 22 }}>Fiyat: {} TL</Text>                        
+                    <Text style={{ textAlign: 'center', fontSize: 22 }}>Fiyat: {Fiyat} TL</Text>                        
                     </View>      
             <View style={{ marginBottom: 2 }} >
             <Button style={{ marginTop: 10, marginBottom: 10 }} color="#D9002E" onPress={this.clickLogin.bind(this)} title='Görüntüle' />
