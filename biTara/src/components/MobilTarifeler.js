@@ -33,7 +33,7 @@ class MobilTarifeler extends Component {
     return <ListItem tarife={tarife} />;
   }
   render() {
-    console.log(this.props.mobilsArray);
+   
     return (
       <ScrollView style={{ backgroundColor: '#F4F6F9' }}>
         <ListView
@@ -47,11 +47,32 @@ class MobilTarifeler extends Component {
 }
 
 
-const mapStateToProps = ({ mobildataResponse }) => {
+const mapStateToProps = ({ mobildataResponse, mobilResponse }) => {
+  const { tumu,
+    turktelekommobil,
+    turkcell,
+    vodafone,
+    dakika,
+    sms,
+    internet,
+    faturali_bireysel,
+    faturasiz_bireysel,
+    faturali_kurumsal } = mobilResponse;
   const mobilsArray = _.map(mobildataResponse, (val, uid) => {
     return { ...val, uid };  
   });
-  return { mobilsArray };
+  
+  return { mobilsArray,
+    tumu,
+    turktelekommobil,
+    turkcell,
+    vodafone,
+    dakika,
+    sms,
+    internet,
+    faturali_bireysel,
+    faturasiz_bireysel,
+    faturali_kurumsal };
 };
 
 export default connect(mapStateToProps, { mobilListData })(MobilTarifeler);
