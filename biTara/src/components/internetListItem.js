@@ -14,7 +14,7 @@ class ListItem extends Component {
                 return (
                    <View style={styles.containerStyle}>
            <View style={styles.containerHeaderStyle}>
-                <Text style={{ color: 'white', fontSize: 20, textAlign: 'center' }}>{Saglayici} Sağlayıcı {this.props.gb}</Text>
+                <Text style={{ color: 'white', fontSize: 20, textAlign: 'center' }}>{Saglayici} </Text>
            </View>
                 <View>
                     <Text style={styles.headerStyle}>{Ad} tarife adı</Text>
