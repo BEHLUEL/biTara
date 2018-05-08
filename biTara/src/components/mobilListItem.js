@@ -1,32 +1,39 @@
 import React, { Component } from 'react';
 import { Text, View, Button } from 'react-native';
+import { Actions } from 'react-native-router-flux';
+import { connect } from 'react-redux';
 
 class ListItem extends Component {
     clickLogin() {
-        
+        Actions.mobilayrinti({ tarife: this.props.tarife });
     }
     render() {
-        const { Dakika, Sms, Internet, TarifeAdi } = this.props.tarife;
-       console.log(Dakika);
+        const { Dakika, Sms, Internet, Ad, Operator, Tur, Fiyat } = this.props.tarife;
+       console.log(this.props.dakika);
        console.log(Sms);
        console.log(Internet);
-       console.log(TarifeAdi);
        
+       
+       if(this.props.dakika < Dakika) {
+            if(this.props.sms < Sms) {
+
+            }
+       }
                 return (
                 <View style={styles.containerStyle}>
                 <View style={styles.containerHeaderStyle}>
-                    <Text style={{ color: 'white', fontSize: 35, textAlign: 'center' }}>{} Operatör</Text>
+                    <Text style={{ color: 'white', fontSize: 35, textAlign: 'center' }}>{Operator}</Text>
                 </View>
                 <View>
-                    <Text style={styles.headerStyle}>{TarifeAdi}</Text>
+                    <Text style={styles.headerStyle}>{Ad}</Text>
                 </View>
                 <View style={styles.subContainerStyle}>
-                    <Text>Dakika: {Dakika}</Text>
+                    <Text>Dakika: {Dakika} dk</Text>
                     <Text>SMS: {Sms}</Text>
                     <Text>İnternet: {Internet} GB</Text>
-                    <Text>Tarife Çeşidi: {}</Text>
+                    <Text>Tarife Çeşidi: {Tur}</Text>
                     <View style={{ margin: 12 }}>
-                        <Text style={{ textAlign: 'center', fontSize: 22 }}>Fiyat: {} TL</Text>
+                        <Text style={{ textAlign: 'center', fontSize: 22 }}>Fiyat: {Fiyat} TL</Text>
                     </View>
 
                     <Button style={{ marginTop: 10, marginBottom: 10 }} color="#00CCEE" onPress={this.clickLogin.bind(this)} title='Görüntüle' />
@@ -72,5 +79,30 @@ const styles = {
         fontSize: 37,
       }
 };
+const mapToStateProps = ({ mobilResponse }) => {
+    const { tumu,
+        turktelekommobil,
+        turkcell,
+        vodafone,
+        dakika,
+        sms,
+        internet,
+        faturali_bireysel,
+        faturasiz_bireysel,
+        faturali_kurumsal } = mobilResponse;
 
-export default ListItem;
+    return {
+        tumu,
+        turktelekommobil,
+        turkcell,
+        vodafone,
+        dakika,
+        sms,
+        internet,
+        faturali_bireysel,
+        faturasiz_bireysel,
+        faturali_kurumsal
+    };
+};
+
+export default connect(mapToStateProps)(ListItem);

@@ -14,7 +14,7 @@ export const mobilKisitChange = ({ props, value }) => {
 
 export const mobilListData = () => {
     return (dispatch) => {
-        firebase.database().ref('/Mobil/TurkTelekom/Faturali/Bireysel')
+        firebase.database().ref('/Tarifeler/Mobil/')
         .on('value', snapshot => {
             dispatch({ type: MOBIL_LIST_DATA_SUCCESS, payload: snapshot.val() });
         });    

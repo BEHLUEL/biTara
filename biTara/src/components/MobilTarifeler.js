@@ -48,7 +48,7 @@ class MobilTarifeler extends Component {
 
 
 const mapStateToProps = ({ mobildataResponse }) => {
-  const mobilsArray = _.map(mobildataResponse, (val,uid) => {
+  const mobilsArray = _.map(mobildataResponse, (val, uid) => {
     return { ...val, uid };  
   });
   return { mobilsArray };

@@ -3,19 +3,20 @@ import { View, ScrollView, Text } from 'react-native';
 
 class MobilAyrinti extends Component {
     render() {
+        console.log('data geliyor mu acepa:' + this.props.tarife);
+        
         return (
             <ScrollView>
             <View >
-            <Text style={styles.headerTextStyle}> Tarife Adı {} </Text>
+            <Text style={styles.headerTextStyle}> Tarife Adı {this.props.tarife.Ad} </Text>
             </View>
             <View style={styles.bodyStyle}>
-                <Text style={styles.bodyFontStyle} >Operatör: {}</Text>
-                <Text style={styles.bodyFontStyle}>Dakika: {}</Text>
-                <Text style={styles.bodyFontStyle}>SMS: {}</Text>
-                <Text style={styles.bodyFontStyle}>İnternet: {}</Text>
-                <Text style={styles.bodyFontStyle}>Hat Türü: {}</Text>
-                <Text style={styles.bodyFontStyle}>Tarife Türü: {}</Text>
-                <Text style={styles.bodyFontStyle}>Taahhüt: {}</Text>
+                <Text style={styles.bodyFontStyle} >Operatör: {this.props.tarife.Operator}</Text>
+                <Text style={styles.bodyFontStyle}>Dakika: {this.props.tarife.Dakika} dk</Text>
+                <Text style={styles.bodyFontStyle}>SMS: {this.props.tarife.Sms}</Text>
+                <Text style={styles.bodyFontStyle}>İnternet: {this.props.tarife.Internet} GB</Text>
+                <Text style={styles.bodyFontStyle}>Tarife Türü: {this.props.tarife.Tur}</Text>
+                <Text style={styles.bodyFontStyle}>Taahhüt: {this.props.tarife.Taahhut} fatura dönemi</Text>
                 
             </View>
             <View style={styles.containerStyle}>
