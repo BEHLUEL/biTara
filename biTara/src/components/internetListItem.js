@@ -12,26 +12,25 @@ class ListItem extends Component {
        
     
                 return (
-                    <View style={styles.containerStyle}>
-                    <View style={styles.containerHeaderStyle}>
-                        <Text style={{ color: 'white', fontSize: 35 }}>{Saglayici} Sağlayıcı {this.props.gb}</Text>
-                    </View>
-                    <View>
-                        <Text style={styles.headerStyle}>{Ad} tarife adı</Text>
-                    </View>
-                    <View style={styles.subContainerStyle}>
-                        <Text>Hız: {Hiz}</Text>
-                        <Text>Limit: {Limit}</Text>
-                        <Text>Taahhüt: {Taahhut} </Text>
-                        <Text>Tur: {Tur}</Text>
-                        <View style={{ margin: 12 }}>
-                            <Text style={{ textAlign: 'center', fontSize: 22 }}>Fiyat: {Fiyat} TL</Text>
-                        </View>
-                        <View style={{ marginBottom: 2 }} >
-                            <Button style={{ marginTop: 10, marginBottom: 10 }} color="#00CCEE" onPress={this.clickLogin.bind(this)} title='Görüntüle' />
-                        </View>
-                    </View>
+                   <View style={styles.containerStyle}>
+           <View style={styles.containerHeaderStyle}>
+                <Text style={{ color: 'white', fontSize: 20, textAlign: 'center' }}>{} Sağlayıcı {this.props.gb}</Text>
+           </View>
+                <View>
+                    <Text style={styles.headerStyle}>{} tarife adı</Text>
                 </View>
+                <View style={styles.subContainerStyle}>
+                    <Text style={styles.textStyle}>Hız: {}</Text>
+                    <Text style={styles.textStyle}>Limit: {}</Text>
+                    <Text style={styles.textStyle}>Taahhüt: {} </Text>
+                    <View style={{ margin: 12 }}>
+                    <Text style={{ textAlign: 'center', fontSize: 22 }}>Fiyat: {} TL</Text>                        
+                    </View>      
+            <View style={{ marginBottom: 2 }} >
+            <Button style={{ marginTop: 10, marginBottom: 10 }} color="#D9002E" onPress={this.clickLogin.bind(this)} title='Görüntüle' />
+            </View>
+            </View>
+            </View>  
             );
                             
     }
