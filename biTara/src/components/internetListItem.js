@@ -40,35 +40,40 @@ const styles = {
     containerStyle: {
         borderWidth: 1,
         borderRadius: 5,
-        borderColor: '#ddd',
+        borderColor: '#EEF0F3',
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.1,
         shadowRadius: 10,
         elevation: 1,
         margin: 10,
-    },
+        backgroundColor: '#8C7BFF'
+      },
 
-    containerHeaderStyle: {
-        margin: 10,
-        backgroundColor: '#002233',
-    },
+      containerHeaderStyle: {
+          margin: 10,
+          backgroundColor: '#8C7BFF',
+      },
 
-    subContainerStyle: {
-        borderBottomWidth: 0,
-        padding: 4,
-        backgroundColor: '#fff',
-        justifyContent: 'flex-start',
-        //flexDirection: 'row',
-        borderColor: '#fff',
-        position: 'relative',
-    },
+      subContainerStyle: {
+          borderBottomWidth: 0,
+          padding: 4,
+          backgroundColor: '#fff',
+          justifyContent: 'flex-start',
+          //flexDirection: 'row',
+          borderColor: '#fff',
+          position: 'relative',
+      },
+      
+      headerStyle: {
+          color: '#14153A',
+          backgroundColor: '#fff',
+          textAlign: 'center',
+          fontSize: 20
+      },
 
-    headerStyle: {
-        color: '#00CCEE',
-        backgroundColor: '#fff',
-        textAlign: 'center',
-        fontSize: 37,
+    textStyle: {
+        color: '#333333'
     }
 };
 const mapToStateProps = ({ internetResponse }) => {
